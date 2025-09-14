@@ -1,8 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_template/base/constants/ui/app_text_styles.dart';
+import 'package:flutter_bloc_template/di/di.dart';
 import 'package:flutter_bloc_template/navigation/router.gr.dart';
 import 'package:flutter_bloc_template/resource/generated/assets.gen.dart';
+import 'package:flutter_bloc_template/ui/profile/bloc/logout_bloc.dart';
+import 'package:flutter_bloc_template/ui/profile/bloc/logout_event.dart';
+import 'package:flutter_bloc_template/ui/profile/bloc/logout_state.dart';
 import 'package:flutter_bloc_template/ui/profile/pages/setting_payment/setting_payment_page.dart';
 import 'package:gap/gap.dart';
 
@@ -13,7 +18,24 @@ class ProfileSettingListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return BlocProvider(
+      create: (context) => SL.get<LogoutBloc>(),
+      child: BlocListener<LogoutBloc, LogoutState>(
+        listener: (context, state) {
+          if (state.isLoggedOut) {
+            // Navigate to login screen or show success message
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Logged out successfully')),
+            );
+            // TODO: Navigate to login screen
+          }
+          if (state.errorMessage != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Logout failed: ${state.errorMessage}')),
+            );
+          }
+        },
+        child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _item(
@@ -73,7 +95,9 @@ class ProfileSettingListViewWidget extends StatelessWidget {
             icon: Assets.icons.infoSquareCurved.svg()),
         _item(onTap: () {}, label: 'Invite Friends', icon: Assets.icons.usersCurve.svg()),
         _item(
-          onTap: () {},
+          onTap: () {
+            context.read<LogoutBloc>().add(const LogoutRequestedEvent());
+          },
           label: 'Logout',
           labelStyle: AppTextStyles.bodyXLargeBold.copyWith(color: AppColors.current.error),
           icon: Assets.icons.logoutCurved.svg(
@@ -84,6 +108,8 @@ class ProfileSettingListViewWidget extends StatelessWidget {
           trailing: const SizedBox.shrink(),
         ),
       ],
+        ),
+      ),
     );
   }
 

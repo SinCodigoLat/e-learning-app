@@ -5,6 +5,19 @@ import socketserver
 from urllib.parse import urlparse, parse_qs
 
 class APIHandler(http.server.SimpleHTTPRequestHandler):
+    def do_POST(self):
+        path = self.path
+        content_length = int(self.headers.get('Content-Length', 0))
+        post_data = self.rfile.read(content_length)
+        
+        # Handle logout endpoint
+        if path == '/logout' or path == '/api/logout':
+            self._send_json_response({"message": "Logged out successfully"})
+            return
+        
+        # For other POST requests, send 404
+        self._send_error_response(404, "POST endpoint not found")
+    
     def do_GET(self):
         # Parse the URL
         parsed_path = urlparse(self.path)

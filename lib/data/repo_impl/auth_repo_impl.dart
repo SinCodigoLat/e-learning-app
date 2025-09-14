@@ -17,4 +17,12 @@ class AuthRepoImpl extends BaseRepository implements AuthRepo {
   Future<Result<AuthEntity>> login(LoginRequest req) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<Result<void>> logout() {
+    return handleApiCall<Map<String, dynamic>, void>(
+      _authService.logout(),
+      mapper: (response) => response.data ?? {},
+    );
+  }
 }

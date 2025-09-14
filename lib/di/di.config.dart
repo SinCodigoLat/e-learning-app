@@ -58,6 +58,7 @@ import '../ui/course/page/course_list/bloc/course_list_bloc.dart' as _i792;
 import '../ui/home/bloc/home_bloc.dart' as _i401;
 import '../ui/home/page/home_search/bloc/home_search_bloc.dart' as _i702;
 import '../ui/login/bloc/login_bloc.dart' as _i919;
+import '../ui/profile/bloc/logout_bloc.dart' as _i773;
 import '../ui/profile/pages/edit_profile/bloc/edit_profile_bloc.dart' as _i90;
 import '../ui/profile/pages/setting_notification/bloc/setting_notification_bloc.dart'
     as _i494;
@@ -78,7 +79,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i494.SettingNotificationBloc());
     gh.factory<_i919.LoginBloc>(() => _i919.LoginBloc());
     gh.factory<_i839.LoadAppConfigUseCase>(() => _i839.LoadAppConfigUseCase());
-    gh.factory<_i92.LogoutUseCase>(() => _i92.LogoutUseCase());
     gh.lazySingleton<_i502.AppRouter>(() => _i502.AppRouter());
     gh.lazySingleton<_i417.CourseService>(
         () => _i417.CourseService(gh<_i361.Dio>()));
@@ -88,8 +88,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i867.UserService(gh<_i361.Dio>()));
     gh.lazySingleton<_i355.AccessTokenInterceptor>(
         () => _i355.AccessTokenInterceptor(gh<_i906.AppSharedPreferences>()));
-    gh.factory<_i63.CommonBloc>(
-        () => _i63.CommonBloc(gh<_i92.LogoutUseCase>()));
     gh.lazySingleton<_i623.AuthRepo>(
         () => _i183.AuthRepoImpl(gh<_i762.AuthService>()));
     gh.lazySingleton<_i414.AppNavigator>(
@@ -107,8 +105,14 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i79.FetchProfileUseCase(gh<_i575.UserRepo>()));
     gh.factory<_i360.ListenUserProfileStreamUseCase>(
         () => _i360.ListenUserProfileStreamUseCase(gh<_i575.UserRepo>()));
+    gh.factory<_i92.LogoutUseCase>(
+        () => _i92.LogoutUseCase(gh<_i623.AuthRepo>()));
     gh.factory<_i924.LoginUseCase>(
         () => _i924.LoginUseCase(gh<_i623.AuthRepo>()));
+    gh.factory<_i63.CommonBloc>(
+        () => _i63.CommonBloc(gh<_i92.LogoutUseCase>()));
+    gh.factory<_i773.LogoutBloc>(
+        () => _i773.LogoutBloc(gh<_i92.LogoutUseCase>()));
     gh.factory<_i974.FetchPromoteListUseCase>(
         () => _i974.FetchPromoteListUseCase(gh<_i492.CourseRepo>()));
     gh.factory<_i954.ToggleFavouriteCourseUseCase>(

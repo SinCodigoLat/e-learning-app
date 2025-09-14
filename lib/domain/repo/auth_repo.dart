@@ -5,4 +5,5 @@ import '../../base/helper/result.dart';
 
 abstract class AuthRepo {
   Future<Result<AuthEntity>> login(LoginRequest req);
+  Future<Result<void>> logout();
 }
