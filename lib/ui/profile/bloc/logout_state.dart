@@ -1,13 +1,14 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc_template/base/bloc/base_bloc/base_state.dart';
 
-class LogoutState extends Equatable {
+class LogoutState extends BaseState {
   final bool isLoggedOut;
   final String? errorMessage;
 
   const LogoutState({
     this.isLoggedOut = false,
     this.errorMessage,
-  });
+  }) : super();
 
   LogoutState copyWith({
     bool? isLoggedOut,

@@ -15,6 +15,7 @@ import 'package:flutter_bloc_template/domain/use_case/config/load_app_config_use
 import 'package:flutter_bloc_template/navigation/router.dart';
 import 'package:flutter_bloc_template/navigation/router.gr.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'base/bloc/app_bloc/app_event.dart';
 import 'base/shared_view/foundation_state.dart';
@@ -44,7 +45,8 @@ Future<void> initApp({
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider.value(value: SL.get<AppBloc>()..add(AppStartedEvent(loadAppConfig))),
+        BlocProvider.value(
+            value: SL.get<AppBloc>()..add(AppStartedEvent(loadAppConfig))),
       ],
       child: _MyApp(config: loadAppConfig),
     ),
@@ -52,7 +54,13 @@ Future<void> initApp({
 }
 
 Future<void> _defaultBeforeRun() async {
-  // Default logic (if any) before app runs
+  // Initialize Supabase first
+  await Supabase.initialize(
+    url: SL.get<EnvironmentConfigurable>().getSupabaseUrl(),
+    anonKey: SL.get<EnvironmentConfigurable>().getSupabaseAnonKey(),
+  );
+
+  // Then initialize app config
   await AppConfig.instance().init();
 }
 
@@ -96,11 +104,20 @@ class _MyAppState extends FoundationState<_MyApp, AppBloc> {
 
   FutureOr<DeepLink> _handleDeepLinkBuilder(PlatformDeepLink deepLink) async {
     late List<PageRouteInfo> routes;
-    routes = [const SplashRoute()];
 
-    if (widget.config.isFirstLaunchApp) routes = [const OnboardingRoute()];
+    // Check if user is logged in with Supabase
+    final user = Supabase.instance.client.auth.currentUser;
 
-    routes = [const MainRoute()];
+    if (widget.config.isFirstLaunchApp) {
+      routes = [const OnboardingRoute()];
+    } else if (user != null) {
+      // User is logged in, go to main page
+      routes = [const MainRoute()];
+    } else {
+      // User is not logged in, go to login page
+      routes = [const LoginRoute()];
+    }
+
     return DeepLink(routes);
   }
 }

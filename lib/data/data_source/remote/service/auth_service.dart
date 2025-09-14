@@ -18,5 +18,5 @@ abstract class AuthService {
   Future<ApiResponse<LoginResponseDto>> login(@Body() LoginRequest req);
 
   @POST('/logout')
-  Future<ApiResponse<Map<String, dynamic>>> logout();
+  Future<ApiResponse<dynamic>> logout();
 }

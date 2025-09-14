@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc_template/base/helper/result.dart';
 import 'package:flutter_bloc_template/base/repo/base_repo.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/service/course_service.dart';
+import 'package:flutter_bloc_template/data/data_source/remote/service/supabase_course_service.dart';
 import 'package:flutter_bloc_template/data/mapper/course/category_mapper.dart';
 import 'package:flutter_bloc_template/data/mapper/course/course_mapper.dart';
 import 'package:flutter_bloc_template/data/mapper/course/lesson_mapper.dart';
@@ -25,17 +25,19 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: CourseRepo)
 class CourseRepoImpl extends BaseRepository implements CourseRepo {
-  final CourseService _courseService;
+  final SupabaseCourseService _courseService;
 
   CourseRepoImpl(this._courseService);
 
-  final StreamController<WatchFavoriteCourseStreamOutput> _favouriteCourseStreamController = StreamController.broadcast();
+  final StreamController<WatchFavoriteCourseStreamOutput>
+      _favouriteCourseStreamController = StreamController.broadcast();
 
   @override
   Future<Result<List<PromoteEntity>>> fetchPromotes() {
     return handleApiCall(
       _courseService.fetchPromotes(),
-      mapper: (resp) => resp?.data?.map(PromoteMapper.mapToEntity).toList() ?? [],
+      mapper: (resp) =>
+          resp?.data?.map(PromoteMapper.mapToEntity).toList() ?? [],
     );
   }
 
@@ -43,7 +45,8 @@ class CourseRepoImpl extends BaseRepository implements CourseRepo {
   Future<Result<List<CourseEntity>>> fetchMostPopularCourse() {
     return handleApiCall(
       _courseService.fetchMostPopularCourse(),
-      mapper: (resp) => resp?.data?.map(CourseMapper.mapToEntity).toList() ?? [],
+      mapper: (resp) =>
+          resp?.data?.map(CourseMapper.mapToEntity).toList() ?? [],
     );
   }
 
@@ -51,7 +54,8 @@ class CourseRepoImpl extends BaseRepository implements CourseRepo {
   Future<Result<List<MentorEntity>>> fetchTopMentors() {
     return handleApiCall(
       _courseService.fetchMentors(),
-      mapper: (resp) => resp?.data?.map(MentorMapper.mapToEntity).toList() ?? [],
+      mapper: (resp) =>
+          resp?.data?.map(MentorMapper.mapToEntity).toList() ?? [],
     );
   }
 
@@ -59,7 +63,8 @@ class CourseRepoImpl extends BaseRepository implements CourseRepo {
   Future<Result<List<CategoryEntity>>> fetchCategories() {
     return handleApiCall(
       _courseService.fetchCategories(),
-      mapper: (resp) => resp?.data?.map(CategoryMapper.mapToEntity).toList() ?? [],
+      mapper: (resp) =>
+          resp?.data?.map(CategoryMapper.mapToEntity).toList() ?? [],
     );
   }
 
@@ -75,7 +80,8 @@ class CourseRepoImpl extends BaseRepository implements CourseRepo {
   Future<Result<List<LessonEntity>>> fetchLessonListFromCourseId(String id) {
     return handleApiCall(
       _courseService.fetchLessonListFromCourseId(id),
-      mapper: (resp) => resp?.data?.map(LessonMapper.mapToEntity).toList() ?? [],
+      mapper: (resp) =>
+          resp?.data?.map(LessonMapper.mapToEntity).toList() ?? [],
     );
   }
 
@@ -83,7 +89,8 @@ class CourseRepoImpl extends BaseRepository implements CourseRepo {
   Future<Result<List<ReviewEntity>>> fetchReviewListFromCourseId(String id) {
     return handleApiCall(
       _courseService.fetchReviewListFromCourseId(id),
-      mapper: (resp) => resp?.data?.map(ReviewMapper.mapToEntity).toList() ?? [],
+      mapper: (resp) =>
+          resp?.data?.map(ReviewMapper.mapToEntity).toList() ?? [],
     );
   }
 
@@ -93,8 +100,10 @@ class CourseRepoImpl extends BaseRepository implements CourseRepo {
   }
 
   @override
-  Future<Result<ToggleFavouriteCourseOutput>> toggleFavouriteCourse(ToggleFavouriteCourseInput input) async {
-    _favouriteCourseStreamController.add(WatchFavoriteCourseStreamOutput(id: input.id, isFav: !input.isFav));
+  Future<Result<ToggleFavouriteCourseOutput>> toggleFavouriteCourse(
+      ToggleFavouriteCourseInput input) async {
+    _favouriteCourseStreamController.add(
+        WatchFavoriteCourseStreamOutput(id: input.id, isFav: !input.isFav));
     return Result.ok(ToggleFavouriteCourseOutput());
   }
 
@@ -102,12 +111,17 @@ class CourseRepoImpl extends BaseRepository implements CourseRepo {
   Future<Result<List<SearchHistoryEntity>>> fetchSearchHistories() {
     return handleApiCall(
       _courseService.fetchSearchHistory(),
-      mapper: (resp) => resp?.data?.map<SearchHistoryEntity>(SearchHistoryMapper.mapToEntity).toList() ?? [],
+      mapper: (resp) =>
+          resp?.data
+              ?.map<SearchHistoryEntity>(SearchHistoryMapper.mapToEntity)
+              .toList() ??
+          [],
     );
   }
 
   @override
   Future<Result<List<String>>> fetchSearchSuggestions() {
-    return handleApiCall(_courseService.fetchSearchSuggestion(), mapper: (resp) => resp?.data ?? []);
+    return handleApiCall(_courseService.fetchSearchSuggestion(),
+        mapper: (resp) => resp?.data ?? []);
   }
 }

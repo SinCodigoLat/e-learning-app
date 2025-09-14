@@ -11,6 +11,7 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
 
 import '../base/bloc/app_bloc/app_bloc.dart' as _i334;
 import '../base/bloc/common_bloc/common_bloc.dart' as _i63;
@@ -18,6 +19,10 @@ import '../base/navigator/app_navigator.dart' as _i414;
 import '../data/data_source/local/app_shared_preferences.dart' as _i906;
 import '../data/data_source/remote/service/auth_service.dart' as _i762;
 import '../data/data_source/remote/service/course_service.dart' as _i417;
+import '../data/data_source/remote/service/supabase_course_service.dart'
+    as _i498;
+import '../data/data_source/remote/service/supabase_service.dart' as _i778;
+import '../data/data_source/remote/service/supabase_user_service.dart' as _i210;
 import '../data/data_source/remote/service/user_service.dart' as _i867;
 import '../data/network/interceptors/access_token_interceptor.dart' as _i355;
 import '../data/network/interceptors/refresh_token_interceptor.dart' as _i746;
@@ -77,9 +82,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i792.CourseListBloc>(() => _i792.CourseListBloc());
     gh.factory<_i494.SettingNotificationBloc>(
         () => _i494.SettingNotificationBloc());
-    gh.factory<_i919.LoginBloc>(() => _i919.LoginBloc());
     gh.factory<_i839.LoadAppConfigUseCase>(() => _i839.LoadAppConfigUseCase());
     gh.lazySingleton<_i502.AppRouter>(() => _i502.AppRouter());
+    gh.lazySingleton<_i778.SupabaseService>(() => _i778.SupabaseService());
+    gh.lazySingleton<_i623.AuthRepo>(
+        () => _i183.AuthRepoImpl(gh<_i778.SupabaseService>()));
     gh.lazySingleton<_i417.CourseService>(
         () => _i417.CourseService(gh<_i361.Dio>()));
     gh.lazySingleton<_i762.AuthService>(
@@ -88,31 +95,31 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i867.UserService(gh<_i361.Dio>()));
     gh.lazySingleton<_i355.AccessTokenInterceptor>(
         () => _i355.AccessTokenInterceptor(gh<_i906.AppSharedPreferences>()));
-    gh.lazySingleton<_i623.AuthRepo>(
-        () => _i183.AuthRepoImpl(gh<_i762.AuthService>()));
+    gh.factory<_i92.LogoutUseCase>(
+        () => _i92.LogoutUseCase(gh<_i623.AuthRepo>()));
+    gh.factory<_i924.LoginUseCase>(
+        () => _i924.LoginUseCase(gh<_i623.AuthRepo>()));
+    gh.factory<_i773.LogoutBloc>(
+        () => _i773.LogoutBloc(gh<_i92.LogoutUseCase>()));
+    gh.factory<_i63.CommonBloc>(
+        () => _i63.CommonBloc(gh<_i92.LogoutUseCase>()));
+    gh.lazySingleton<_i210.SupabaseUserService>(
+        () => _i210.SupabaseUserService(gh<_i454.SupabaseClient>()));
+    gh.lazySingleton<_i498.SupabaseCourseService>(
+        () => _i498.SupabaseCourseService(gh<_i454.SupabaseClient>()));
     gh.lazySingleton<_i414.AppNavigator>(
         () => _i285.AppNavigatorImpl(gh<_i502.AppRouter>()));
+    gh.factory<_i919.LoginBloc>(
+        () => _i919.LoginBloc(gh<_i924.LoginUseCase>()));
     gh.lazySingleton<_i746.RefreshTokenInterceptor>(
         () => _i746.RefreshTokenInterceptor(
               gh<_i906.AppSharedPreferences>(),
               gh<_i361.Dio>(),
             ));
     gh.lazySingleton<_i575.UserRepo>(
-        () => _i1027.UserRepoImpl(gh<_i867.UserService>()));
+        () => _i1027.UserRepoImpl(gh<_i210.SupabaseUserService>()));
     gh.lazySingleton<_i492.CourseRepo>(
-        () => _i396.CourseRepoImpl(gh<_i417.CourseService>()));
-    gh.factory<_i79.FetchProfileUseCase>(
-        () => _i79.FetchProfileUseCase(gh<_i575.UserRepo>()));
-    gh.factory<_i360.ListenUserProfileStreamUseCase>(
-        () => _i360.ListenUserProfileStreamUseCase(gh<_i575.UserRepo>()));
-    gh.factory<_i92.LogoutUseCase>(
-        () => _i92.LogoutUseCase(gh<_i623.AuthRepo>()));
-    gh.factory<_i924.LoginUseCase>(
-        () => _i924.LoginUseCase(gh<_i623.AuthRepo>()));
-    gh.factory<_i63.CommonBloc>(
-        () => _i63.CommonBloc(gh<_i92.LogoutUseCase>()));
-    gh.factory<_i773.LogoutBloc>(
-        () => _i773.LogoutBloc(gh<_i92.LogoutUseCase>()));
+        () => _i396.CourseRepoImpl(gh<_i498.SupabaseCourseService>()));
     gh.factory<_i974.FetchPromoteListUseCase>(
         () => _i974.FetchPromoteListUseCase(gh<_i492.CourseRepo>()));
     gh.factory<_i954.ToggleFavouriteCourseUseCase>(
@@ -139,10 +146,6 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i627.FetchSearchSuggestionListUseCase>(),
           gh<_i141.FetchSearchHistoryListUseCase>(),
         ));
-    gh.factory<_i90.EditProfileBloc>(
-        () => _i90.EditProfileBloc(gh<_i79.FetchProfileUseCase>()));
-    gh.singleton<_i334.AppBloc>(
-        () => _i334.AppBloc(gh<_i79.FetchProfileUseCase>()));
     gh.factory<_i401.HomeBloc>(() => _i401.HomeBloc(
           gh<_i974.FetchPromoteListUseCase>(),
           gh<_i280.FetchMostPopularCourseUseCase>(),
@@ -150,12 +153,20 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1026.FetchCategoryListUseCase>(),
           gh<_i954.ToggleFavouriteCourseUseCase>(),
         ));
+    gh.factory<_i79.FetchProfileUseCase>(
+        () => _i79.FetchProfileUseCase(gh<_i575.UserRepo>()));
+    gh.factory<_i360.ListenUserProfileStreamUseCase>(
+        () => _i360.ListenUserProfileStreamUseCase(gh<_i575.UserRepo>()));
     gh.factory<_i942.CourseDetailBloc>(() => _i942.CourseDetailBloc(
           gh<_i538.FetchCourseDetailUseCase>(),
           gh<_i430.FetchLessonListFromCourseIdUseCase>(),
           gh<_i408.FetchReviewListFromCourseIdUseCase>(),
           gh<_i954.ToggleFavouriteCourseUseCase>(),
         ));
+    gh.factory<_i90.EditProfileBloc>(
+        () => _i90.EditProfileBloc(gh<_i79.FetchProfileUseCase>()));
+    gh.singleton<_i334.AppBloc>(
+        () => _i334.AppBloc(gh<_i79.FetchProfileUseCase>()));
     return this;
   }
 }

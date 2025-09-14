@@ -3,6 +3,7 @@ import 'package:flutter_bloc_template/data/network/dio_client.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../data/data_source/local/app_shared_preferences.dart';
 import '../data/network/interceptors/access_token_interceptor.dart';
@@ -41,5 +42,10 @@ Future<void> _registerNetwork() async {
 
 Future<void> _registerStorage() async {
   final prefs = await SharedPreferences.getInstance();
-  SL.registerSingleton<AppSharedPreferences>(AppSharedPreferences(prefs: prefs));
+  SL.registerSingleton<AppSharedPreferences>(
+      AppSharedPreferences(prefs: prefs));
+
+  // Register Supabase client
+  final supabaseClient = Supabase.instance.client;
+  SL.registerSingleton<SupabaseClient>(supabaseClient);
 }
