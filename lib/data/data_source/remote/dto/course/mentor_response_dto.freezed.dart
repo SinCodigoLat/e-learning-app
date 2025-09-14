@@ -25,12 +25,8 @@ mixin _$MentorResponseDto {
   String? get title => throw _privateConstructorUsedError;
   String? get avatarUrl => throw _privateConstructorUsedError;
 
-  /// Serializes this MentorResponseDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of MentorResponseDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $MentorResponseDtoCopyWith<MentorResponseDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,8 +50,6 @@ class _$MentorResponseDtoCopyWithImpl<$Res, $Val extends MentorResponseDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of MentorResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -104,8 +98,6 @@ class __$$MentorResponseDtoImplCopyWithImpl<$Res>
       $Res Function(_$MentorResponseDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MentorResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -170,13 +162,11 @@ class _$MentorResponseDtoImpl implements _MentorResponseDto {
                 other.avatarUrl == avatarUrl));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, title, avatarUrl);
 
-  /// Create a copy of MentorResponseDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$MentorResponseDtoImplCopyWith<_$MentorResponseDtoImpl> get copyWith =>
@@ -209,11 +199,8 @@ abstract class _MentorResponseDto implements MentorResponseDto {
   String? get title;
   @override
   String? get avatarUrl;
-
-  /// Create a copy of MentorResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$MentorResponseDtoImplCopyWith<_$MentorResponseDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

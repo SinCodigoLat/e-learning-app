@@ -27,12 +27,8 @@ mixin _$PromoteResponseDto {
   bool? get isActive => throw _privateConstructorUsedError;
   String? get expiryDate => throw _privateConstructorUsedError;
 
-  /// Serializes this PromoteResponseDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of PromoteResponseDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $PromoteResponseDtoCopyWith<PromoteResponseDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,8 +58,6 @@ class _$PromoteResponseDtoCopyWithImpl<$Res, $Val extends PromoteResponseDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PromoteResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,8 +122,6 @@ class __$$PromoteResponseDtoImplCopyWithImpl<$Res>
       $Res Function(_$PromoteResponseDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of PromoteResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -218,14 +210,12 @@ class _$PromoteResponseDtoImpl implements _PromoteResponseDto {
                 other.expiryDate == expiryDate));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, id, title, description, discount, isActive, expiryDate);
 
-  /// Create a copy of PromoteResponseDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$PromoteResponseDtoImplCopyWith<_$PromoteResponseDtoImpl> get copyWith =>
@@ -264,11 +254,8 @@ abstract class _PromoteResponseDto implements PromoteResponseDto {
   bool? get isActive;
   @override
   String? get expiryDate;
-
-  /// Create a copy of PromoteResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$PromoteResponseDtoImplCopyWith<_$PromoteResponseDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -10,13 +10,16 @@ abstract final class AppTheme {
   static ThemeData get light => ThemeData(
       useMaterial3: true,
       fontFamily: fontFamily,
-      tabBarTheme: TabBarTheme(
+      tabBarTheme: TabBarThemeData(
           indicatorColor: AppColors.current.primary500,
           indicatorSize: TabBarIndicatorSize.tab,
-          labelStyle: AppTextStyles.bodyXLargeSemiBold.copyWith(color: AppColors.current.primary500),
-          unselectedLabelStyle: AppTextStyles.bodyXLargeSemiBold.copyWith(color: AppColors.current.greyscale500),
+          labelStyle: AppTextStyles.bodyXLargeSemiBold
+              .copyWith(color: AppColors.current.primary500),
+          unselectedLabelStyle: AppTextStyles.bodyXLargeSemiBold
+              .copyWith(color: AppColors.current.greyscale500),
           indicator: UnderlineTabIndicator(
-            borderSide: BorderSide(width: 4, color: AppColors.current.primary500),
+            borderSide:
+                BorderSide(width: 4, color: AppColors.current.primary500),
             borderRadius: BorderRadius.circular(100),
           )));
 

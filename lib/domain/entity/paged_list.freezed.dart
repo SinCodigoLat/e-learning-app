@@ -22,9 +22,7 @@ mixin _$PagedList<T> {
   int? get offset => throw _privateConstructorUsedError;
   int? get total => throw _privateConstructorUsedError;
 
-  /// Create a copy of PagedList
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $PagedListCopyWith<T, PagedList<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,8 +47,6 @@ class _$PagedListCopyWithImpl<T, $Res, $Val extends PagedList<T>>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PagedList
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -102,8 +98,6 @@ class __$$PagedListImplCopyWithImpl<T, $Res>
       _$PagedListImpl<T> _value, $Res Function(_$PagedListImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of PagedList
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -194,9 +188,7 @@ class _$PagedListImpl<T> extends _PagedList<T> {
       offset,
       total);
 
-  /// Create a copy of PagedList
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$PagedListImplCopyWith<T, _$PagedListImpl<T>> get copyWith =>
@@ -222,11 +214,8 @@ abstract class _PagedList<T> extends PagedList<T> {
   int? get offset;
   @override
   int? get total;
-
-  /// Create a copy of PagedList
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$PagedListImplCopyWith<T, _$PagedListImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

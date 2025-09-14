@@ -36,12 +36,8 @@ mixin _$CourseResponseDto {
   List<ToolResponseDto>? get tools => throw _privateConstructorUsedError;
   bool? get isFavourite => throw _privateConstructorUsedError;
 
-  /// Serializes this CourseResponseDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of CourseResponseDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $CourseResponseDtoCopyWith<CourseResponseDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -82,8 +78,6 @@ class _$CourseResponseDtoCopyWithImpl<$Res, $Val extends CourseResponseDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CourseResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -167,8 +161,6 @@ class _$CourseResponseDtoCopyWithImpl<$Res, $Val extends CourseResponseDto>
     ) as $Val);
   }
 
-  /// Create a copy of CourseResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MentorResponseDtoCopyWith<$Res>? get mentor {
@@ -219,8 +211,6 @@ class __$$CourseResponseDtoImplCopyWithImpl<$Res>
       $Res Function(_$CourseResponseDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CourseResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -402,7 +392,7 @@ class _$CourseResponseDtoImpl implements _CourseResponseDto {
                 other.isFavourite == isFavourite));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -422,9 +412,7 @@ class _$CourseResponseDtoImpl implements _CourseResponseDto {
       const DeepCollectionEquality().hash(_tools),
       isFavourite);
 
-  /// Create a copy of CourseResponseDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CourseResponseDtoImplCopyWith<_$CourseResponseDtoImpl> get copyWith =>
@@ -490,11 +478,8 @@ abstract class _CourseResponseDto implements CourseResponseDto {
   List<ToolResponseDto>? get tools;
   @override
   bool? get isFavourite;
-
-  /// Create a copy of CourseResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CourseResponseDtoImplCopyWith<_$CourseResponseDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -508,12 +493,8 @@ mixin _$ToolResponseDto {
   String? get name => throw _privateConstructorUsedError;
   String? get iconUrl => throw _privateConstructorUsedError;
 
-  /// Serializes this ToolResponseDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ToolResponseDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ToolResponseDtoCopyWith<ToolResponseDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -537,8 +518,6 @@ class _$ToolResponseDtoCopyWithImpl<$Res, $Val extends ToolResponseDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ToolResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -577,8 +556,6 @@ class __$$ToolResponseDtoImplCopyWithImpl<$Res>
       _$ToolResponseDtoImpl _value, $Res Function(_$ToolResponseDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ToolResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -625,13 +602,11 @@ class _$ToolResponseDtoImpl implements _ToolResponseDto {
             (identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, iconUrl);
 
-  /// Create a copy of ToolResponseDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ToolResponseDtoImplCopyWith<_$ToolResponseDtoImpl> get copyWith =>
@@ -657,11 +632,8 @@ abstract class _ToolResponseDto implements ToolResponseDto {
   String? get name;
   @override
   String? get iconUrl;
-
-  /// Create a copy of ToolResponseDto
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ToolResponseDtoImplCopyWith<_$ToolResponseDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
