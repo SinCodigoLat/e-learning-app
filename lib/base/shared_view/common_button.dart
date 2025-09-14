@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_colors.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_text_styles.dart';
+import 'package:e_learning_app/base/constants/ui/app_colors.dart';
+import 'package:e_learning_app/base/constants/ui/app_text_styles.dart';
 
 enum CommonButtonSize { small, medium, large }
 

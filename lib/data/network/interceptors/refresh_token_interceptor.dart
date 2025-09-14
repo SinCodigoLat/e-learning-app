@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_bloc_template/base/constants/local/app_storage_keys.dart';
-import 'package:flutter_bloc_template/base/constants/remote/http_header_constants.dart';
+import 'package:e_learning_app/base/constants/local/app_storage_keys.dart';
+import 'package:e_learning_app/base/constants/remote/http_header_constants.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../base/helper/checker.dart';

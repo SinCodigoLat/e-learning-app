@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/shared_view/common_button.dart';
-import 'package:flutter_bloc_template/domain/entity/config/onboarding_entity.dart';
-import 'package:flutter_bloc_template/navigation/router.gr.dart';
-import 'package:flutter_bloc_template/resource/generated/assets.gen.dart';
-import 'package:flutter_bloc_template/ui/onboarding/components/dot_widget.dart';
-import 'package:flutter_bloc_template/ui/onboarding/components/onboarding_page_view_widget.dart';
+import 'package:e_learning_app/base/shared_view/common_button.dart';
+import 'package:e_learning_app/domain/entity/config/onboarding_entity.dart';
+import 'package:e_learning_app/navigation/router.gr.dart';
+import 'package:e_learning_app/resource/generated/assets.gen.dart';
+import 'package:e_learning_app/ui/onboarding/components/dot_widget.dart';
+import 'package:e_learning_app/ui/onboarding/components/onboarding_page_view_widget.dart';
 import 'package:gap/gap.dart';
 
 import '../../base/helper/duration_provider.dart';

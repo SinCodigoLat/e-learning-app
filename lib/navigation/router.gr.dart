@@ -10,36 +10,36 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i21;
 import 'package:flutter/material.dart' as _i22;
-import 'package:flutter_bloc_template/ui/course/page/course_detail/course_detail_page.dart'
+import 'package:e_learning_app/ui/course/page/course_detail/course_detail_page.dart'
     as _i1;
-import 'package:flutter_bloc_template/ui/course/page/course_list/course_list_page.dart'
+import 'package:e_learning_app/ui/course/page/course_list/course_list_page.dart'
     as _i2;
-import 'package:flutter_bloc_template/ui/course/page/lesson_video_player/lesson_video_player_page.dart'
+import 'package:e_learning_app/ui/course/page/lesson_video_player/lesson_video_player_page.dart'
     as _i8;
-import 'package:flutter_bloc_template/ui/home/home_page.dart' as _i5;
-import 'package:flutter_bloc_template/ui/home/page/home_search/home_search_page.dart'
+import 'package:e_learning_app/ui/home/home_page.dart' as _i5;
+import 'package:e_learning_app/ui/home/page/home_search/home_search_page.dart'
     as _i6;
-import 'package:flutter_bloc_template/ui/inbox/inbox_page.dart' as _i7;
-import 'package:flutter_bloc_template/ui/let_in/let_in_page.dart' as _i9;
-import 'package:flutter_bloc_template/ui/login/login_page.dart' as _i10;
-import 'package:flutter_bloc_template/ui/main/main_page.dart' as _i11;
-import 'package:flutter_bloc_template/ui/my_course/my_course_page.dart' as _i12;
-import 'package:flutter_bloc_template/ui/onboarding/onboarding_page.dart'
+import 'package:e_learning_app/ui/inbox/inbox_page.dart' as _i7;
+import 'package:e_learning_app/ui/let_in/let_in_page.dart' as _i9;
+import 'package:e_learning_app/ui/login/login_page.dart' as _i10;
+import 'package:e_learning_app/ui/main/main_page.dart' as _i11;
+import 'package:e_learning_app/ui/my_course/my_course_page.dart' as _i12;
+import 'package:e_learning_app/ui/onboarding/onboarding_page.dart'
     as _i13;
-import 'package:flutter_bloc_template/ui/profile/pages/edit_profile/edit_profile_page.dart'
+import 'package:e_learning_app/ui/profile/pages/edit_profile/edit_profile_page.dart'
     as _i3;
-import 'package:flutter_bloc_template/ui/profile/pages/help_center/help_center_page.dart'
+import 'package:e_learning_app/ui/profile/pages/help_center/help_center_page.dart'
     as _i4;
-import 'package:flutter_bloc_template/ui/profile/pages/setting_language/setting_language_page.dart'
+import 'package:e_learning_app/ui/profile/pages/setting_language/setting_language_page.dart'
     as _i15;
-import 'package:flutter_bloc_template/ui/profile/pages/setting_notification/setting_notification_page.dart'
+import 'package:e_learning_app/ui/profile/pages/setting_notification/setting_notification_page.dart'
     as _i16;
-import 'package:flutter_bloc_template/ui/profile/pages/setting_payment/setting_payment_page.dart'
+import 'package:e_learning_app/ui/profile/pages/setting_payment/setting_payment_page.dart'
     as _i17;
-import 'package:flutter_bloc_template/ui/profile/profile_page.dart' as _i14;
-import 'package:flutter_bloc_template/ui/sign_up/sign_up_page.dart' as _i18;
-import 'package:flutter_bloc_template/ui/splash/splash_page.dart' as _i19;
-import 'package:flutter_bloc_template/ui/transaction/transaction_page.dart'
+import 'package:e_learning_app/ui/profile/profile_page.dart' as _i14;
+import 'package:e_learning_app/ui/sign_up/sign_up_page.dart' as _i18;
+import 'package:e_learning_app/ui/splash/splash_page.dart' as _i19;
+import 'package:e_learning_app/ui/transaction/transaction_page.dart'
     as _i20;
 
 /// generated route for

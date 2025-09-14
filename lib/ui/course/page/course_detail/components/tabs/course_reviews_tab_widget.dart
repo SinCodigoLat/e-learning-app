@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc_template/base/shared_view/common_expandable_text.dart';
-import 'package:flutter_bloc_template/base/shared_view/common_image_view.dart';
-import 'package:flutter_bloc_template/domain/entity/course/course_entity.dart';
-import 'package:flutter_bloc_template/domain/entity/course/review_entity.dart';
-import 'package:flutter_bloc_template/domain/entity/enum/enum.dart';
-import 'package:flutter_bloc_template/ui/widgets/custom_chip_widget.dart';
+import 'package:e_learning_app/base/shared_view/common_expandable_text.dart';
+import 'package:e_learning_app/base/shared_view/common_image_view.dart';
+import 'package:e_learning_app/domain/entity/course/course_entity.dart';
+import 'package:e_learning_app/domain/entity/course/review_entity.dart';
+import 'package:e_learning_app/domain/entity/enum/enum.dart';
+import 'package:e_learning_app/ui/widgets/custom_chip_widget.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../../base/constants/ui/app_colors.dart';

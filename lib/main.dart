@@ -5,15 +5,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_template/base/bloc/app_bloc/app_bloc.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_theme.dart';
-import 'package:flutter_bloc_template/base/helper/log.dart';
-import 'package:flutter_bloc_template/config/environment.dart';
-import 'package:flutter_bloc_template/di/di.dart';
-import 'package:flutter_bloc_template/domain/entity/config/load_app_config_entity.dart';
-import 'package:flutter_bloc_template/domain/use_case/config/load_app_config_use_case.dart';
-import 'package:flutter_bloc_template/navigation/router.dart';
-import 'package:flutter_bloc_template/navigation/router.gr.dart';
+import 'package:e_learning_app/base/bloc/app_bloc/app_bloc.dart';
+import 'package:e_learning_app/base/constants/ui/app_theme.dart';
+import 'package:e_learning_app/base/helper/log.dart';
+import 'package:e_learning_app/config/environment.dart';
+import 'package:e_learning_app/di/di.dart';
+import 'package:e_learning_app/domain/entity/config/load_app_config_entity.dart';
+import 'package:e_learning_app/domain/use_case/config/load_app_config_use_case.dart';
+import 'package:e_learning_app/navigation/router.dart';
+import 'package:e_learning_app/navigation/router.gr.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -54,7 +54,7 @@ Future<void> initApp({
 }
 
 Future<void> _defaultBeforeRun() async {
-  // Initialize Supabase first
+  // Initialize Supabase
   await Supabase.initialize(
     url: SL.get<EnvironmentConfigurable>().getSupabaseUrl(),
     anonKey: SL.get<EnvironmentConfigurable>().getSupabaseAnonKey(),

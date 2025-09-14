@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_bloc_template/base/helper/checker.dart';
+import 'package:e_learning_app/base/helper/checker.dart';
 
 import '../constants/ui/app_colors.dart';
 

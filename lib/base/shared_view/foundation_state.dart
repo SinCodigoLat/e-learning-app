@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_template/navigation/router.gr.dart';
+import 'package:e_learning_app/navigation/router.gr.dart';
 import 'package:provider/provider.dart';
 
 import '../../di/di.dart';

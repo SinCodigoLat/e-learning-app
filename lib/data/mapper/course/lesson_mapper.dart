@@ -1,5 +1,5 @@
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/lesson_response_dto.dart';
-import 'package:flutter_bloc_template/domain/entity/course/lesson_entity.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/lesson_response_dto.dart';
+import 'package:e_learning_app/domain/entity/course/lesson_entity.dart';
 
 abstract final class LessonMapper {
   const LessonMapper._();

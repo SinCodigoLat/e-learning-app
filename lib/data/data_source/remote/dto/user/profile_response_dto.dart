@@ -16,6 +16,8 @@ class ProfileResponseDto {
   final String level;
   final List<String> achievements;
   final Map<String, String> socialLinks;
+  final String? gender;
+  final String? birthday;
 
   ProfileResponseDto({
     required this.id,
@@ -35,6 +37,8 @@ class ProfileResponseDto {
     required this.level,
     required this.achievements,
     required this.socialLinks,
+    this.gender,
+    this.birthday,
   });
 
   factory ProfileResponseDto.fromJson(Map<String, dynamic> json) {
@@ -56,6 +60,8 @@ class ProfileResponseDto {
       level: json['level'] ?? '',
       achievements: List<String>.from(json['achievements'] ?? []),
       socialLinks: Map<String, String>.from(json['socialLinks'] ?? {}),
+      gender: json['gender'],
+      birthday: json['birthday'],
     );
   }
 
@@ -78,6 +84,8 @@ class ProfileResponseDto {
       'level': level,
       'achievements': achievements,
       'socialLinks': socialLinks,
+      'gender': gender,
+      'birthday': birthday,
     };
   }
 }

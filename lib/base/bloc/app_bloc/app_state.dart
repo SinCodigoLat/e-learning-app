@@ -1,4 +1,4 @@
-import 'package:flutter_bloc_template/base/bloc/base_bloc/base_state.dart';
+import 'package:e_learning_app/base/bloc/base_bloc/base_state.dart';
 
 final class AppState extends BaseState {
 

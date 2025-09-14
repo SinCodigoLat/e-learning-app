@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_template/base/bloc/base_bloc/base_bloc.dart';
-import 'package:flutter_bloc_template/base/bloc/load_status.dart';
-import 'package:flutter_bloc_template/base/helper/checker.dart';
-import 'package:flutter_bloc_template/base/helper/duration_provider.dart';
-import 'package:flutter_bloc_template/domain/use_case/course/fetch_search_history_list_use_case.dart';
-import 'package:flutter_bloc_template/domain/use_case/course/fetch_search_suggestion_list_use_case.dart';
-import 'package:flutter_bloc_template/ui/home/page/home_search/bloc/home_search_event.dart';
-import 'package:flutter_bloc_template/ui/home/page/home_search/bloc/home_search_state.dart';
+import 'package:e_learning_app/base/bloc/base_bloc/base_bloc.dart';
+import 'package:e_learning_app/base/bloc/load_status.dart';
+import 'package:e_learning_app/base/helper/checker.dart';
+import 'package:e_learning_app/base/helper/duration_provider.dart';
+import 'package:e_learning_app/domain/use_case/course/fetch_search_history_list_use_case.dart';
+import 'package:e_learning_app/domain/use_case/course/fetch_search_suggestion_list_use_case.dart';
+import 'package:e_learning_app/ui/home/page/home_search/bloc/home_search_event.dart';
+import 'package:e_learning_app/ui/home/page/home_search/bloc/home_search_state.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../../base/helper/stream_helper.dart';

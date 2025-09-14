@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_colors.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_text_styles.dart';
-import 'package:flutter_bloc_template/base/constants/ui/dimens.dart';
-import 'package:flutter_bloc_template/base/helper/checker.dart';
-import 'package:flutter_bloc_template/base/navigator/app_navigator.dart';
-import 'package:flutter_bloc_template/base/shared_view/common_button.dart';
+import 'package:e_learning_app/base/constants/ui/app_colors.dart';
+import 'package:e_learning_app/base/constants/ui/app_text_styles.dart';
+import 'package:e_learning_app/base/constants/ui/dimens.dart';
+import 'package:e_learning_app/base/helper/checker.dart';
+import 'package:e_learning_app/base/navigator/app_navigator.dart';
+import 'package:e_learning_app/base/shared_view/common_button.dart';
 import 'package:gap/gap.dart';
 
 // enum PlatformDialogType { android, iOS, adaptive }

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/helper/log.dart';
+import 'package:e_learning_app/base/helper/log.dart';
 
 class AppRouterObserver extends NavigatorObserver {
   void _log(String event, Route? route) {

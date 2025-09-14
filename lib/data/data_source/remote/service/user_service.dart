@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/user/user_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/user/user_response_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 

@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/user/profile_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/api_response.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/user/profile_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/api_response.dart';
 
 @lazySingleton
 class SupabaseUserService {
@@ -45,6 +45,8 @@ class SupabaseUserService {
           'linkedin': 'https://linkedin.com/in/user',
           'github': 'https://github.com/user',
         },
+        gender: 'male', // Mock gender data
+        birthday: '1990-01-01', // Mock birthday data
       );
 
       return ApiResponse<ProfileResponseDto>(

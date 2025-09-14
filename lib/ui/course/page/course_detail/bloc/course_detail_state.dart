@@ -1,8 +1,8 @@
-import 'package:flutter_bloc_template/base/bloc/base_bloc/base_state.dart';
-import 'package:flutter_bloc_template/domain/entity/course/course_entity.dart';
-import 'package:flutter_bloc_template/domain/entity/course/lesson_entity.dart';
-import 'package:flutter_bloc_template/domain/entity/course/review_entity.dart';
-import 'package:flutter_bloc_template/domain/entity/enum/enum.dart';
+import 'package:e_learning_app/base/bloc/base_bloc/base_state.dart';
+import 'package:e_learning_app/domain/entity/course/course_entity.dart';
+import 'package:e_learning_app/domain/entity/course/lesson_entity.dart';
+import 'package:e_learning_app/domain/entity/course/review_entity.dart';
+import 'package:e_learning_app/domain/entity/enum/enum.dart';
 
 final class CourseDetailState extends BaseState {
   final CourseEntity course;

@@ -1,5 +1,5 @@
-import 'package:flutter_bloc_template/base/bloc/base_bloc/base_event.dart';
-import 'package:flutter_bloc_template/domain/entity/config/load_app_config_entity.dart';
+import 'package:e_learning_app/base/bloc/base_bloc/base_event.dart';
+import 'package:e_learning_app/domain/entity/config/load_app_config_entity.dart';
 
 sealed class AppEvent extends BaseEvent {
   @override

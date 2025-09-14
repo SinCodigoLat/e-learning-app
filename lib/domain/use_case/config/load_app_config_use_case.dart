@@ -1,6 +1,7 @@
-import 'package:flutter_bloc_template/base/use_case/base_use_case.dart';
-import 'package:flutter_bloc_template/base/use_case/sync_use_case.dart';
+import 'package:e_learning_app/base/use_case/base_use_case.dart';
+import 'package:e_learning_app/base/use_case/sync_use_case.dart';
 import 'package:injectable/injectable.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../entity/config/load_app_config_entity.dart';
 
@@ -8,10 +9,13 @@ import '../../entity/config/load_app_config_entity.dart';
 class LoadAppConfigUseCase extends SyncUseCase<LoadAppConfigEntity, NoParam?> {
   @override
   LoadAppConfigEntity invoke(NoParam? param) {
+    final user = Supabase.instance.client.auth.currentUser;
+    final isLoggedIn = user != null;
+
     return LoadAppConfigEntity(
-      isFirstLaunchApp: true,
+      isFirstLaunchApp: !isLoggedIn, // Solo es primera vez si no está logueado
       isDarkMode: false,
-      isLoggedIn: false,
+      isLoggedIn: isLoggedIn,
     );
   }
   // @override

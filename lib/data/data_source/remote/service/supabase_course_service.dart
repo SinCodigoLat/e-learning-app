@@ -1,13 +1,13 @@
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/category_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/course_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/lesson_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/mentor_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/review_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/promote_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/search_history_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/api_response.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/category_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/course_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/lesson_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/mentor_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/review_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/promote_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/search_history_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/api_response.dart';
 
 @lazySingleton
 class SupabaseCourseService {

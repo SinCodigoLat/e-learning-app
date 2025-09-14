@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_text_styles.dart';
-import 'package:flutter_bloc_template/base/constants/ui/dimens.dart';
-import 'package:flutter_bloc_template/base/shared_view/common_image_view.dart';
-import 'package:flutter_bloc_template/domain/entity/course/category_entity.dart';
-import 'package:flutter_bloc_template/domain/entity/course/course_entity.dart';
-import 'package:flutter_bloc_template/navigation/router.gr.dart';
-import 'package:flutter_bloc_template/resource/generated/assets.gen.dart';
-import 'package:flutter_bloc_template/ui/widgets/course/course_item_widget.dart';
+import 'package:e_learning_app/base/constants/ui/app_text_styles.dart';
+import 'package:e_learning_app/base/constants/ui/dimens.dart';
+import 'package:e_learning_app/base/shared_view/common_image_view.dart';
+import 'package:e_learning_app/domain/entity/course/category_entity.dart';
+import 'package:e_learning_app/domain/entity/course/course_entity.dart';
+import 'package:e_learning_app/navigation/router.gr.dart';
+import 'package:e_learning_app/resource/generated/assets.gen.dart';
+import 'package:e_learning_app/ui/widgets/course/course_item_widget.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 

@@ -1,5 +1,5 @@
-import 'package:flutter_bloc_template/base/helper/checker.dart';
-import 'package:flutter_bloc_template/base/utils/validation_utils.dart';
+import 'package:e_learning_app/base/helper/checker.dart';
+import 'package:e_learning_app/base/utils/validation_utils.dart';
 import 'package:formz/formz.dart';
 
 enum EmailInputError {

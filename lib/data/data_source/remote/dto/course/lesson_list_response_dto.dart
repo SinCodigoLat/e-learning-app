@@ -1,4 +1,4 @@
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/lesson_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/lesson_response_dto.dart';
 
 class LessonListResponseDto {
   final List<LessonResponseDto> lessons;

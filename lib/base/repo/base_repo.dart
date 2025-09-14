@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_bloc_template/base/helper/duration_provider.dart';
-import 'package:flutter_bloc_template/base/helper/log.dart';
+import 'package:e_learning_app/base/helper/duration_provider.dart';
+import 'package:e_learning_app/base/helper/log.dart';
 
 import '../../data/data_source/remote/dto/api_response.dart';
 import '../exception/app_exception.dart';

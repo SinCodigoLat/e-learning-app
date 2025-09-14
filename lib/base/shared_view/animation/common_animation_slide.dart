@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/helper/duration_provider.dart';
+import 'package:e_learning_app/base/helper/duration_provider.dart';
 
 enum SlideDirection { fromTop, fromLeft, fromRight, fromBottom }
 

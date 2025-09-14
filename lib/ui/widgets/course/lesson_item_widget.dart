@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/domain/entity/course/lesson_entity.dart';
+import 'package:e_learning_app/domain/entity/course/lesson_entity.dart';
 import 'package:gap/gap.dart';
 
 import '../../../base/constants/ui/app_colors.dart';

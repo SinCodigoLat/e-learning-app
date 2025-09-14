@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_template/base/bloc/base_bloc/base_bloc.dart';
-import 'package:flutter_bloc_template/domain/entity/course/course_entity.dart';
-import 'package:flutter_bloc_template/domain/entity/enum/enum.dart';
-import 'package:flutter_bloc_template/domain/use_case/course/fetch_course_detail_use_case.dart';
-import 'package:flutter_bloc_template/ui/course/page/course_detail/bloc/course_detail_event.dart';
-import 'package:flutter_bloc_template/ui/course/page/course_detail/bloc/course_detail_state.dart';
+import 'package:e_learning_app/base/bloc/base_bloc/base_bloc.dart';
+import 'package:e_learning_app/domain/entity/course/course_entity.dart';
+import 'package:e_learning_app/domain/entity/enum/enum.dart';
+import 'package:e_learning_app/domain/use_case/course/fetch_course_detail_use_case.dart';
+import 'package:e_learning_app/ui/course/page/course_detail/bloc/course_detail_event.dart';
+import 'package:e_learning_app/ui/course/page/course_detail/bloc/course_detail_state.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../../domain/use_case/course/fetch_lesson_list_from_course_id_use_case.dart';

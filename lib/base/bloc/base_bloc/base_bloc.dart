@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_template/base/helper/log.dart';
+import 'package:e_learning_app/base/helper/log.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../exception/app_exception.dart';

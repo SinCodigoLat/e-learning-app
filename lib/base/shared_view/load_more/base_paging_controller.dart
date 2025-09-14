@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/exception/app_exception.dart';
+import 'package:e_learning_app/base/exception/app_exception.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class BasePagingController<T> extends PagingController<int, T> {

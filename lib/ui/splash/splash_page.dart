@@ -1,6 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/shared_view/common_scaffold.dart';
+import 'package:e_learning_app/base/shared_view/common_scaffold.dart';
 
 @RoutePage()
 class SplashPage extends StatelessWidget {

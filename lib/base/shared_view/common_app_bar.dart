@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc_template/base/extension/context_extension.dart';
+import 'package:e_learning_app/base/extension/context_extension.dart';
 
 import '../../resource/generated/assets.gen.dart';
 import '../constants/ui/app_colors.dart';
@@ -79,7 +79,8 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       // surfaceTintColor: Colors.transparent,
       scrolledUnderElevation: 0,
       toolbarHeight: preferredSize.height,
-      automaticallyImplyLeading: leadingIcon == LeadingIcon.none ? false : automaticallyImplyLeading,
+      automaticallyImplyLeading:
+          leadingIcon == LeadingIcon.none ? false : automaticallyImplyLeading,
       flexibleSpace: flexibleSpace,
       bottom: bottom,
       shadowColor: shadowColor,
@@ -103,7 +104,9 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: onLeadingPressed ?? () => _onPop(context),
               icon: Container(
                 padding: const EdgeInsets.only(left: Dimens.paddingHorizontal),
-                child: LeadingIcon.close == leadingIcon ? const Icon(Icons.close) : Assets.icons.arrowLeft.svg(),
+                child: LeadingIcon.close == leadingIcon
+                    ? const Icon(Icons.close)
+                    : Assets.icons.arrowLeft.svg(),
               ),
             ),
       centerTitle: centerTitle,
@@ -112,7 +115,9 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         behavior: HitTestBehavior.translucent,
         child: titleType == AppBarTitle.text
             ? Text(text ?? '', style: titleTextStyle ?? AppTextStyles.h4Bold)
-            : (titleType == AppBarTitle.widget ? text : null),
+            : (titleType == AppBarTitle.widget
+                ? (text is Widget ? text as Widget : null)
+                : null),
       ),
       actions: actions,
       elevation: elevation,

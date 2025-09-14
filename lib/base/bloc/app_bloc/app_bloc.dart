@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_template/base/bloc/app_bloc/app_event.dart';
-import 'package:flutter_bloc_template/base/bloc/app_bloc/app_state.dart';
-import 'package:flutter_bloc_template/base/bloc/base_bloc/base_bloc.dart';
-import 'package:flutter_bloc_template/domain/use_case/user/fetch_profile_use_case.dart';
+import 'package:e_learning_app/base/bloc/app_bloc/app_event.dart';
+import 'package:e_learning_app/base/bloc/app_bloc/app_state.dart';
+import 'package:e_learning_app/base/bloc/base_bloc/base_bloc.dart';
+import 'package:e_learning_app/domain/use_case/user/fetch_profile_use_case.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton

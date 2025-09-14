@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/category_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/course_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/lesson_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/mentor_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/review_response_dto.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/search_history_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/category_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/course_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/lesson_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/mentor_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/review_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/search_history_response_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 

@@ -1,5 +1,5 @@
-import 'package:flutter_bloc_template/config/environment.dart';
-import 'package:flutter_bloc_template/main.dart';
+import 'package:e_learning_app/config/environment.dart';
+import 'package:e_learning_app/main.dart';
 
 void main() {
   initApp(

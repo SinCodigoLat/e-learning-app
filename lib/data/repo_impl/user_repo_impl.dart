@@ -1,7 +1,7 @@
-import 'package:flutter_bloc_template/base/repo/base_repo.dart';
-import 'package:flutter_bloc_template/data/data_source/remote/service/supabase_user_service.dart';
-import 'package:flutter_bloc_template/domain/entity/user/user_entity.dart';
-import 'package:flutter_bloc_template/domain/repo/user_repo.dart';
+import 'package:e_learning_app/base/repo/base_repo.dart';
+import 'package:e_learning_app/data/data_source/remote/service/supabase_user_service.dart';
+import 'package:e_learning_app/domain/entity/user/user_entity.dart';
+import 'package:e_learning_app/domain/repo/user_repo.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 

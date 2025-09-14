@@ -395,6 +395,13 @@ class $AssetsImagesGen {
   AssetGenImage get logoName =>
       const AssetGenImage('assets/images/Logo-Name.png');
 
+  /// File path: assets/images/app_icon.png
+  AssetGenImage get appIconPng =>
+      const AssetGenImage('assets/images/app_icon.png');
+
+  /// File path: assets/images/app_icon.svg
+  SvgGenImage get appIconSvg => const SvgGenImage('assets/images/app_icon.svg');
+
   /// File path: assets/images/apple.png
   AssetGenImage get apple => const AssetGenImage('assets/images/apple.png');
 
@@ -418,12 +425,14 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/shield_popup.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
         frame,
         frame1,
         frame2,
         frame3,
         logoName,
+        appIconPng,
+        appIconSvg,
         apple,
         emptyCourse,
         facebook,

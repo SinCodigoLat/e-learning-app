@@ -1,14 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_text_styles.dart';
-import 'package:flutter_bloc_template/di/di.dart';
-import 'package:flutter_bloc_template/navigation/router.gr.dart';
-import 'package:flutter_bloc_template/resource/generated/assets.gen.dart';
-import 'package:flutter_bloc_template/ui/profile/bloc/logout_bloc.dart';
-import 'package:flutter_bloc_template/ui/profile/bloc/logout_event.dart';
-import 'package:flutter_bloc_template/ui/profile/bloc/logout_state.dart';
-import 'package:flutter_bloc_template/ui/profile/pages/setting_payment/setting_payment_page.dart';
+import 'package:e_learning_app/base/constants/ui/app_text_styles.dart';
+import 'package:e_learning_app/di/di.dart';
+import 'package:e_learning_app/navigation/router.gr.dart';
+import 'package:e_learning_app/resource/generated/assets.gen.dart';
+import 'package:e_learning_app/ui/profile/bloc/logout_bloc.dart';
+import 'package:e_learning_app/ui/profile/bloc/logout_event.dart';
+import 'package:e_learning_app/ui/profile/bloc/logout_state.dart';
 import 'package:gap/gap.dart';
 
 import '../../../base/constants/ui/app_colors.dart';
@@ -23,91 +22,109 @@ class ProfileSettingListViewWidget extends StatelessWidget {
       child: BlocListener<LogoutBloc, LogoutState>(
         listener: (context, state) {
           if (state.isLoggedOut) {
-            // Navigate to login screen or show success message
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Logged out successfully')),
-            );
-            // TODO: Navigate to login screen
+            // Navigate to login screen
+            AutoRouter.of(context).push(const LoginRoute());
           }
           if (state.errorMessage != null) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Logout failed: ${state.errorMessage}')),
+              SnackBar(
+                content: Text('Logout failed: ${state.errorMessage}'),
+                backgroundColor: Colors.red,
+              ),
             );
           }
         },
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _item(
-          onTap: () {
-            AutoRouter.of(context).push(const EditProfileRoute());
-          },
-          label: 'Edit Profile',
-          icon: Assets.icons.profileCurved.svg(),
-        ),
-        _item(
-            onTap: () => AutoRouter.of(context).push(const SettingNotificationRoute()),
-            label: 'Notification',
-            icon: Assets.icons.notificationCurved.svg()),
-        _item(
-            onTap: () => AutoRouter.of(context).push(const SettingPaymentRoute()), label: 'Payment', icon: Assets.icons.walletCurved.svg()),
-        _item(onTap: () {}, label: 'Security', icon: Assets.icons.shieldDoneCurved.svg()),
-        _item(
-          onTap: () => AutoRouter.of(context).push(const SettingNotificationRoute()),
-          label: 'Language',
-          icon: Assets.icons.moreCircleCurved.svg(),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('English (US)'),
-              const Gap(20),
-              Assets.icons.arrowRight2.svg(),
-            ],
-          ),
-        ),
-        _item(
-            onTap: () {},
-            label: 'Dark Mode',
-            icon: Assets.icons.showCurved.svg(),
-            trailing: Builder(
-              builder: (_) {
-                bool enable = false;
-                return StatefulBuilder(
-                  builder: (context, setState) {
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          enable = !enable;
-                        });
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _item(
+              onTap: () {
+                AutoRouter.of(context).push(const EditProfileRoute());
+              },
+              label: 'Edit Profile',
+              icon: Assets.icons.profileCurved.svg(),
+            ),
+            _item(
+                onTap: () => AutoRouter.of(context)
+                    .push(const SettingNotificationRoute()),
+                label: 'Notification',
+                icon: Assets.icons.notificationCurved.svg()),
+            _item(
+                onTap: () =>
+                    AutoRouter.of(context).push(const SettingPaymentRoute()),
+                label: 'Payment',
+                icon: Assets.icons.walletCurved.svg()),
+            _item(
+                onTap: () {},
+                label: 'Security',
+                icon: Assets.icons.shieldDoneCurved.svg()),
+            _item(
+              onTap: () =>
+                  AutoRouter.of(context).push(const SettingNotificationRoute()),
+              label: 'Language',
+              icon: Assets.icons.moreCircleCurved.svg(),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('English (US)'),
+                  const Gap(20),
+                  Assets.icons.arrowRight2.svg(),
+                ],
+              ),
+            ),
+            _item(
+                onTap: () {},
+                label: 'Dark Mode',
+                icon: Assets.icons.showCurved.svg(),
+                trailing: Builder(
+                  builder: (_) {
+                    bool enable = false;
+                    return StatefulBuilder(
+                      builder: (context, setState) {
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              enable = !enable;
+                            });
+                          },
+                          child: enable
+                              ? Assets.icons.toggleEnable.svg()
+                              : Assets.icons.toggleDisabled.svg(),
+                        );
                       },
-                      child: enable ? Assets.icons.toggleEnable.svg() : Assets.icons.toggleDisabled.svg(),
                     );
                   },
-                );
+                )),
+            _item(
+                onTap: () {},
+                label: 'Privacy Policy',
+                icon: Assets.icons.lockCurved.svg()),
+            _item(
+                onTap: () =>
+                    AutoRouter.of(context).push(const HelpCenterRoute()),
+                label: 'Help Center',
+                icon: Assets.icons.infoSquareCurved.svg()),
+            _item(
+                onTap: () {},
+                label: 'Invite Friends',
+                icon: Assets.icons.usersCurve.svg()),
+            _item(
+              onTap: () {
+                context.read<LogoutBloc>().add(const LogoutRequestedEvent());
               },
-            )),
-        _item(onTap: () {}, label: 'Privacy Policy', icon: Assets.icons.lockCurved.svg()),
-        _item(
-            onTap: () => AutoRouter.of(context).push(const HelpCenterRoute()),
-            label: 'Help Center',
-            icon: Assets.icons.infoSquareCurved.svg()),
-        _item(onTap: () {}, label: 'Invite Friends', icon: Assets.icons.usersCurve.svg()),
-        _item(
-          onTap: () {
-            context.read<LogoutBloc>().add(const LogoutRequestedEvent());
-          },
-          label: 'Logout',
-          labelStyle: AppTextStyles.bodyXLargeBold.copyWith(color: AppColors.current.error),
-          icon: Assets.icons.logoutCurved.svg(
-              colorFilter: ColorFilter.mode(
-            AppColors.current.error,
-            BlendMode.srcIn,
-          )),
-          trailing: const SizedBox.shrink(),
-        ),
-      ],
+              label: 'Logout',
+              labelStyle: AppTextStyles.bodyXLargeBold
+                  .copyWith(color: AppColors.current.error),
+              icon: Assets.icons.logoutCurved.svg(
+                  colorFilter: ColorFilter.mode(
+                AppColors.current.error,
+                BlendMode.srcIn,
+              )),
+              trailing: const SizedBox.shrink(),
+            ),
+          ],
         ),
       ),
     );

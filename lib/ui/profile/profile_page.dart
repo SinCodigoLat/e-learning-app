@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/constants/ui/dimens.dart';
-import 'package:flutter_bloc_template/base/shared_view/common_app_bar.dart';
-import 'package:flutter_bloc_template/base/shared_view/common_scaffold.dart';
-import 'package:flutter_bloc_template/resource/generated/assets.gen.dart';
-import 'package:flutter_bloc_template/ui/profile/components/profile_avatar_widget.dart';
+import 'package:e_learning_app/base/constants/ui/dimens.dart';
+import 'package:e_learning_app/base/shared_view/common_app_bar.dart';
+import 'package:e_learning_app/base/shared_view/common_scaffold.dart';
+import 'package:e_learning_app/resource/generated/assets.gen.dart';
+import 'package:e_learning_app/ui/profile/components/profile_avatar_widget.dart';
 import 'package:gap/gap.dart';
 
 import '../../base/constants/ui/app_colors.dart';

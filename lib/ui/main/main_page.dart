@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/di/di.dart';
-import 'package:flutter_bloc_template/navigation/router.dart';
+import 'package:e_learning_app/di/di.dart';
+import 'package:e_learning_app/navigation/router.dart';
 
 import '../../base/constants/ui/app_colors.dart';
 import '../../base/constants/ui/app_text_styles.dart';

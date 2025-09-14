@@ -1,7 +1,7 @@
 
-import 'package:flutter_bloc_template/base/use_case/stream_use_case.dart';
-import 'package:flutter_bloc_template/domain/entity/user/user_entity.dart';
-import 'package:flutter_bloc_template/domain/repo/user_repo.dart';
+import 'package:e_learning_app/base/use_case/stream_use_case.dart';
+import 'package:e_learning_app/domain/entity/user/user_entity.dart';
+import 'package:e_learning_app/domain/repo/user_repo.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_template/base/helper/module_initializer.dart';
-import 'package:flutter_bloc_template/di/di.dart';
+import 'package:e_learning_app/base/helper/module_initializer.dart';
+import 'package:e_learning_app/di/di.dart';
 
 import '../base/bloc/app_bloc_observer.dart';
 

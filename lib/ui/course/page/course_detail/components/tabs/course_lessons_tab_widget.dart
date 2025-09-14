@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_colors.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_text_styles.dart';
-import 'package:flutter_bloc_template/domain/entity/course/course_entity.dart';
-import 'package:flutter_bloc_template/domain/entity/course/lesson_entity.dart';
-import 'package:flutter_bloc_template/navigation/router.gr.dart';
-import 'package:flutter_bloc_template/ui/main/main_page.dart';
-import 'package:flutter_bloc_template/ui/widgets/course/lesson_item_widget.dart';
+import 'package:e_learning_app/base/constants/ui/app_colors.dart';
+import 'package:e_learning_app/base/constants/ui/app_text_styles.dart';
+import 'package:e_learning_app/domain/entity/course/course_entity.dart';
+import 'package:e_learning_app/domain/entity/course/lesson_entity.dart';
+import 'package:e_learning_app/navigation/router.gr.dart';
+import 'package:e_learning_app/ui/main/main_page.dart';
+import 'package:e_learning_app/ui/widgets/course/lesson_item_widget.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../../base/constants/ui/dimens.dart';

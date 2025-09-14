@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_template/base/bloc/base_bloc/base_bloc.dart';
-import 'package:flutter_bloc_template/base/helper/duration_provider.dart';
-import 'package:flutter_bloc_template/domain/use_case/auth/login_use_case.dart';
-import 'package:flutter_bloc_template/ui/login/bloc/login_event.dart';
-import 'package:flutter_bloc_template/ui/login/bloc/login_state.dart';
+import 'package:e_learning_app/base/bloc/base_bloc/base_bloc.dart';
+import 'package:e_learning_app/base/helper/duration_provider.dart';
+import 'package:e_learning_app/domain/use_case/auth/login_use_case.dart';
+import 'package:e_learning_app/ui/login/bloc/login_event.dart';
+import 'package:e_learning_app/ui/login/bloc/login_state.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

@@ -1,4 +1,4 @@
-import 'package:flutter_bloc_template/base/utils/validation_utils.dart';
+import 'package:e_learning_app/base/utils/validation_utils.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

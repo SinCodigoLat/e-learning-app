@@ -1,4 +1,5 @@
-import 'package:flutter_bloc_template/base/bloc/base_bloc/base_event.dart';
+import 'package:e_learning_app/base/bloc/base_bloc/base_event.dart';
+import 'package:e_learning_app/domain/entity/enum/enum.dart';
 
 sealed class EditProfileEvent extends BaseEvent {
   @override
@@ -32,4 +33,29 @@ final class ProfilePhoneNumberChangedEvent extends EditProfileEvent {
 
   @override
   List<Object?> get props => [value];
+}
+
+final class ProfileBirthdayChangedEvent extends EditProfileEvent {
+  final DateTime value;
+
+  ProfileBirthdayChangedEvent(this.value);
+
+  @override
+  List<Object?> get props => [value];
+}
+
+final class ProfileGenderChangedEvent extends EditProfileEvent {
+  final Gender value;
+
+  ProfileGenderChangedEvent(this.value);
+
+  @override
+  List<Object?> get props => [value];
+}
+
+final class UpdateProfileRequestEvent extends EditProfileEvent {
+  UpdateProfileRequestEvent();
+
+  @override
+  List<Object?> get props => [];
 }

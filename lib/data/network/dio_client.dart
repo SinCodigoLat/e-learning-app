@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_bloc_template/base/helper/helper.dart';
-import 'package:flutter_bloc_template/config/environment.dart';
-import 'package:flutter_bloc_template/di/di.dart';
+import 'package:e_learning_app/base/helper/helper.dart';
+import 'package:e_learning_app/config/environment.dart';
+import 'package:e_learning_app/di/di.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 final class DioClient implements LibraryInitializer<void> {

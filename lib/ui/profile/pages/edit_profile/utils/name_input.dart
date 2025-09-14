@@ -1,4 +1,4 @@
-import 'package:flutter_bloc_template/base/helper/checker.dart';
+import 'package:e_learning_app/base/helper/checker.dart';
 import 'package:formz/formz.dart';
 
 enum NameInputError {

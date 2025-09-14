@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_text_styles.dart';
+import 'package:e_learning_app/base/constants/ui/app_text_styles.dart';
 
 import '../../resource/generated/assets.gen.dart';
 import '../constants/ui/app_colors.dart';

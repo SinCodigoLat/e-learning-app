@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/extension/context_extension.dart';
+import 'package:e_learning_app/base/extension/context_extension.dart';
 
 import '../constants/ui/app_colors.dart';
 

@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/navigator/app_navigator.dart';
-import 'package:flutter_bloc_template/base/shared_view/dialog/app_dialogs.dart';
-import 'package:flutter_bloc_template/base/shared_view/dialog/common_dialog.dart';
-import 'package:flutter_bloc_template/navigation/router.dart';
+import 'package:e_learning_app/base/navigator/app_navigator.dart';
+import 'package:e_learning_app/base/shared_view/dialog/app_dialogs.dart';
+import 'package:e_learning_app/base/shared_view/dialog/common_dialog.dart';
+import 'package:e_learning_app/navigation/router.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: AppNavigator)

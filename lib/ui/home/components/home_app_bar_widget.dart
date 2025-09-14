@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/constants/ui/app_text_styles.dart';
-import 'package:flutter_bloc_template/base/constants/ui/dimens.dart';
-import 'package:flutter_bloc_template/base/shared_view/common_image_view.dart';
-import 'package:flutter_bloc_template/di/di.dart';
-import 'package:flutter_bloc_template/domain/entity/user/user_entity.dart';
-import 'package:flutter_bloc_template/domain/use_case/user/listen_user_profile_stream_use_case.dart';
-import 'package:flutter_bloc_template/resource/generated/assets.gen.dart';
+import 'package:e_learning_app/base/constants/ui/app_text_styles.dart';
+import 'package:e_learning_app/base/constants/ui/dimens.dart';
+import 'package:e_learning_app/base/shared_view/common_image_view.dart';
+import 'package:e_learning_app/di/di.dart';
+import 'package:e_learning_app/domain/entity/user/user_entity.dart';
+import 'package:e_learning_app/domain/use_case/user/listen_user_profile_stream_use_case.dart';
+import 'package:e_learning_app/resource/generated/assets.gen.dart';
 import 'package:gap/gap.dart';
 
 class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {

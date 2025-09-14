@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_bloc_template/data/network/dio_client.dart';
+import 'package:e_learning_app/data/network/dio_client.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -45,7 +45,6 @@ Future<void> _registerStorage() async {
   SL.registerSingleton<AppSharedPreferences>(
       AppSharedPreferences(prefs: prefs));
 
-  // Register Supabase client
-  final supabaseClient = Supabase.instance.client;
-  SL.registerSingleton<SupabaseClient>(supabaseClient);
+  // Register Supabase client - this will be initialized in main.dart
+  SL.registerLazySingleton<SupabaseClient>(() => Supabase.instance.client);
 }

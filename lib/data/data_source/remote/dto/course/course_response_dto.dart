@@ -1,4 +1,4 @@
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/mentor_response_dto.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/mentor_response_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'course_response_dto.freezed.dart';
 part 'course_response_dto.g.dart';

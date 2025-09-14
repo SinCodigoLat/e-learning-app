@@ -1,7 +1,7 @@
-import 'package:flutter_bloc_template/base/bloc/base_bloc/base_state.dart';
-import 'package:flutter_bloc_template/base/bloc/load_status.dart';
-import 'package:flutter_bloc_template/base/helper/checker.dart';
-import 'package:flutter_bloc_template/domain/entity/course/search_history_entity.dart';
+import 'package:e_learning_app/base/bloc/base_bloc/base_state.dart';
+import 'package:e_learning_app/base/bloc/load_status.dart';
+import 'package:e_learning_app/base/helper/checker.dart';
+import 'package:e_learning_app/domain/entity/course/search_history_entity.dart';
 
 final class HomeSearchState extends BaseState {
   final List<SearchHistoryEntity> histories;

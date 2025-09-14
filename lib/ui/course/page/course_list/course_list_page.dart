@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/base/shared_view/foundation_state.dart';
-import 'package:flutter_bloc_template/ui/course/page/course_list/bloc/course_list_bloc.dart';
+import 'package:e_learning_app/base/shared_view/foundation_state.dart';
+import 'package:e_learning_app/ui/course/page/course_list/bloc/course_list_bloc.dart';
 
 @RoutePage()
 class CourseListPage extends StatefulWidget {

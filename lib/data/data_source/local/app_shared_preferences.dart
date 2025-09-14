@@ -1,5 +1,5 @@
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
-import 'package:flutter_bloc_template/base/constants/local/app_storage_keys.dart';
+import 'package:e_learning_app/base/constants/local/app_storage_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart' as sp;
 
 class AppSharedPreferences {

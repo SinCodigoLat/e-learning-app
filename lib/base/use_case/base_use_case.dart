@@ -1,4 +1,4 @@
-import 'package:flutter_bloc_template/base/exception/app_exception.dart';
+import 'package:e_learning_app/base/exception/app_exception.dart';
 
 import '../helper/helper.dart';
 

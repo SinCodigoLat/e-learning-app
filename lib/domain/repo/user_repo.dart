@@ -1,4 +1,4 @@
-import 'package:flutter_bloc_template/domain/entity/user/user_entity.dart';
+import 'package:e_learning_app/domain/entity/user/user_entity.dart';
 
 import '../../base/helper/result.dart';
 

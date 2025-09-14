@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/di/di.dart';
-import 'package:flutter_bloc_template/domain/entity/course/course_entity.dart';
-import 'package:flutter_bloc_template/domain/use_case/course/watch_favorite_course_stream_use_case.dart';
-import 'package:flutter_bloc_template/ui/widgets/course/course_rating_widget.dart';
+import 'package:e_learning_app/di/di.dart';
+import 'package:e_learning_app/domain/entity/course/course_entity.dart';
+import 'package:e_learning_app/domain/use_case/course/watch_favorite_course_stream_use_case.dart';
+import 'package:e_learning_app/ui/widgets/course/course_rating_widget.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 

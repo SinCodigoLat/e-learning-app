@@ -1,5 +1,5 @@
-import 'package:flutter_bloc_template/data/data_source/remote/dto/course/course_response_dto.dart';
-import 'package:flutter_bloc_template/data/mapper/course/tool_mapper.dart';
+import 'package:e_learning_app/data/data_source/remote/dto/course/course_response_dto.dart';
+import 'package:e_learning_app/data/mapper/course/tool_mapper.dart';
 
 import '../../../domain/entity/course/course_entity.dart';
 import 'mentor_mapper.dart';
