@@ -113,7 +113,7 @@ class AppColors {
     return current;
   }
 
-  static get defaultAppColor => AppColors(
+  static get lightAppColor => AppColors(
         primary500: const Color(0xff335EF7),
         primary400: const Color(0xff5C7EF9),
         primary300: const Color(0xff859EFA),
@@ -170,6 +170,66 @@ class AppColors {
           colors: [Color(0xffFF8A9B), Color(0xffFF4D67)],
         ),
       );
+
+  static get darkAppColor => AppColors(
+        primary500: const Color(0xff5C7EF9),
+        primary400: const Color(0xff859EFA),
+        primary300: const Color(0xffADBFFC),
+        primary200: const Color(0xffD6E3FD),
+        primary100: const Color(0xffEBEFFE),
+        secondary500: const Color(0xffFFD300),
+        secondary400: const Color(0xffFFDC33),
+        secondary300: const Color(0xffFFE566),
+        secondary200: const Color(0xffFFED99),
+        secondary100: const Color(0xffFFFBE6),
+        success: const Color(0xff4ADE80),
+        info: const Color(0xff246BFD),
+        warning: const Color(0xffFACC15),
+        error: const Color(0xffF75555),
+        disable: const Color(0xff4A4A4A),
+        disableButton: const Color(0xff2A3A6B),
+        greyscale900: const Color(0xffFFFFFF),
+        greyscale800: const Color(0xffF5F5F5),
+        greyscale700: const Color(0xffE0E0E0),
+        greyscale600: const Color(0xffBDBDBD),
+        greyscale500: const Color(0xff9E9E9E),
+        greyscale400: const Color(0xff757575),
+        greyscale300: const Color(0xff616161),
+        greyscale200: const Color(0xff424242),
+        greyscale100: const Color(0xff2A2A2A),
+        greyscale50: const Color(0xff1A1A1A),
+        backgroundBlue: const Color(0xff1A1F2E),
+        backgroundGreen: const Color(0xff1A2E1F),
+        backgroundOrange: const Color(0xff2E1F1A),
+        backgroundPink: const Color(0xff2E1A1A),
+        backgroundYellow: const Color(0xff2E2A1A),
+        backgroundPurple: const Color(0xff2A1A2E),
+        transparentBlue: const Color(0xff5C7EF9).withOpacity(.15),
+        transparentGreen: const Color(0xff4CAF50).withOpacity(.15),
+        transparentOrange: const Color(0xffFF9800).withOpacity(.15),
+        transparentRed: const Color(0xffF75555).withOpacity(.15),
+        transparentYellow: const Color(0xffFACC15).withOpacity(.15),
+        transparentCyan: const Color(0xff5C7EF9).withOpacity(.15),
+        otherWhite: const Color(0xff1A1A1A),
+        scaffoldColor: const Color(0xff121212),
+        gradientBlue: const LinearGradient(
+          colors: [Color(0xff5F82FF), Color(0xff335EF7)],
+        ),
+        gradientGreen: const LinearGradient(
+          colors: [Color(0xff35DEBC), Color(0xff22BB9C)],
+        ),
+        gradientOrange: const LinearGradient(
+          colors: [Color(0xffFFAB38), Color(0xffFB9400)],
+        ),
+        gradientYellow: const LinearGradient(
+          colors: [Color(0xffFFE580), Color(0xffFACC15)],
+        ),
+        gradientRed: const LinearGradient(
+          colors: [Color(0xffFF8A9B), Color(0xffFF4D67)],
+        ),
+      );
+
+  static get defaultAppColor => lightAppColor;
 }
 
 enum AppThemeType { light, dark }
@@ -182,7 +242,8 @@ extension AppThemeDataExtension on ThemeData {
   }
 
   AppColors get appColor {
-    return _appColorMap[AppThemeSetting.currentAppThemeType] ?? AppColors.defaultAppColor;
+    return _appColorMap[AppThemeSetting.currentAppThemeType] ??
+        AppColors.defaultAppColor;
   }
 }
 

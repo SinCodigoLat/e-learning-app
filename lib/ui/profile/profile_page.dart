@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:e_learning_app/base/constants/ui/dimens.dart';
-import 'package:e_learning_app/base/shared_view/common_app_bar.dart';
-import 'package:e_learning_app/base/shared_view/common_scaffold.dart';
 import 'package:e_learning_app/resource/generated/assets.gen.dart';
 import 'package:e_learning_app/ui/profile/components/profile_avatar_widget.dart';
 import 'package:gap/gap.dart';
@@ -16,15 +14,29 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CommonScaffold(
-      appBar: CommonAppBar(
-        text: 'Profile',
+    return Scaffold(
+      backgroundColor: AppColors.lightAppColor.scaffoldColor,
+      appBar: AppBar(
+        title: Text(
+          'Profile',
+          style: TextStyle(
+              color: AppColors.lightAppColor.greyscale900,
+              fontSize: 24,
+              fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
         automaticallyImplyLeading: false,
         leadingWidth: 0,
-        leadingIcon: LeadingIcon.none,
         centerTitle: false,
         actions: [
-          IconButton(onPressed: () {}, icon: Assets.icons.moreCircleCurved.svg()),
+          IconButton(
+            onPressed: () {},
+            icon: Assets.icons.moreCircleCurved.svg(
+              colorFilter: ColorFilter.mode(
+                  AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+            ),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -34,7 +46,7 @@ class ProfilePage extends StatelessWidget {
           children: [
             const ProfileAvatarWidget(),
             const Gap(Dimens.paddingVerticalLarge),
-            Divider(height: 1, color: AppColors.current.greyscale200),
+            Divider(height: 1, color: AppColors.lightAppColor.greyscale200),
             const Gap(Dimens.paddingVerticalLarge),
             const ProfileSettingListViewWidget(),
           ],

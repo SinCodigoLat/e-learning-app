@@ -42,84 +42,106 @@ class ProfileSettingListViewWidget extends StatelessWidget {
                 AutoRouter.of(context).push(const EditProfileRoute());
               },
               label: 'Edit Profile',
-              icon: Assets.icons.profileCurved.svg(),
+              icon: Assets.icons.profileCurved.svg(
+                colorFilter: ColorFilter.mode(
+                    AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+              ),
             ),
             _item(
-                onTap: () => AutoRouter.of(context)
-                    .push(const SettingNotificationRoute()),
-                label: 'Notification',
-                icon: Assets.icons.notificationCurved.svg()),
+              onTap: () =>
+                  AutoRouter.of(context).push(const SettingNotificationRoute()),
+              label: 'Notification',
+              icon: Assets.icons.notificationCurved.svg(
+                colorFilter: ColorFilter.mode(
+                    AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+              ),
+            ),
             _item(
-                onTap: () =>
-                    AutoRouter.of(context).push(const SettingPaymentRoute()),
-                label: 'Payment',
-                icon: Assets.icons.walletCurved.svg()),
+              onTap: () =>
+                  AutoRouter.of(context).push(const SettingPaymentRoute()),
+              label: 'Payment',
+              icon: Assets.icons.walletCurved.svg(
+                colorFilter: ColorFilter.mode(
+                    AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+              ),
+            ),
             _item(
-                onTap: () {},
-                label: 'Security',
-                icon: Assets.icons.shieldDoneCurved.svg()),
+              onTap: () {},
+              label: 'Security',
+              icon: Assets.icons.shieldDoneCurved.svg(
+                colorFilter: ColorFilter.mode(
+                    AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+              ),
+            ),
             _item(
               onTap: () =>
                   AutoRouter.of(context).push(const SettingNotificationRoute()),
               label: 'Language',
-              icon: Assets.icons.moreCircleCurved.svg(),
+              icon: Assets.icons.moreCircleCurved.svg(
+                colorFilter: ColorFilter.mode(
+                    AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+              ),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('English (US)'),
+                  Text('English (US)',
+                      style: TextStyle(
+                          color: AppColors.lightAppColor.greyscale900)),
                   const Gap(20),
-                  Assets.icons.arrowRight2.svg(),
+                  Assets.icons.arrowRight2.svg(
+                    colorFilter: ColorFilter.mode(
+                        AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+                  ),
                 ],
               ),
             ),
+            // Dark Mode option hidden for now - app only supports light mode
+            // _item(
+            //   onTap: () {},
+            //   label: 'Dark Mode',
+            //   icon: Assets.icons.showCurved.svg(
+            //     colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
+            //   ),
+            //   trailing: const ThemeToggleWidget(),
+            //   textColor: textColor,
+            //   iconColor: iconColor,
+            // ),
             _item(
-                onTap: () {},
-                label: 'Dark Mode',
-                icon: Assets.icons.showCurved.svg(),
-                trailing: Builder(
-                  builder: (_) {
-                    bool enable = false;
-                    return StatefulBuilder(
-                      builder: (context, setState) {
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              enable = !enable;
-                            });
-                          },
-                          child: enable
-                              ? Assets.icons.toggleEnable.svg()
-                              : Assets.icons.toggleDisabled.svg(),
-                        );
-                      },
-                    );
-                  },
-                )),
+              onTap: () {},
+              label: 'Privacy Policy',
+              icon: Assets.icons.lockCurved.svg(
+                colorFilter: ColorFilter.mode(
+                    AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+              ),
+            ),
             _item(
-                onTap: () {},
-                label: 'Privacy Policy',
-                icon: Assets.icons.lockCurved.svg()),
+              onTap: () => AutoRouter.of(context).push(const HelpCenterRoute()),
+              label: 'Help Center',
+              icon: Assets.icons.infoSquareCurved.svg(
+                colorFilter: ColorFilter.mode(
+                    AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+              ),
+            ),
             _item(
-                onTap: () =>
-                    AutoRouter.of(context).push(const HelpCenterRoute()),
-                label: 'Help Center',
-                icon: Assets.icons.infoSquareCurved.svg()),
-            _item(
-                onTap: () {},
-                label: 'Invite Friends',
-                icon: Assets.icons.usersCurve.svg()),
+              onTap: () {},
+              label: 'Invite Friends',
+              icon: Assets.icons.usersCurve.svg(
+                colorFilter: ColorFilter.mode(
+                    AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+              ),
+            ),
             _item(
               onTap: () {
                 context.read<LogoutBloc>().add(const LogoutRequestedEvent());
               },
               label: 'Logout',
               labelStyle: AppTextStyles.bodyXLargeBold
-                  .copyWith(color: AppColors.current.error),
+                  .copyWith(color: AppColors.lightAppColor.error),
               icon: Assets.icons.logoutCurved.svg(
                   colorFilter: ColorFilter.mode(
-                AppColors.current.error,
+                AppColors.lightAppColor.error,
                 BlendMode.srcIn,
               )),
               trailing: const SizedBox.shrink(),
@@ -136,7 +158,6 @@ class ProfileSettingListViewWidget extends StatelessWidget {
     required Widget icon,
     Widget? trailing,
     TextStyle? labelStyle,
-    // bool visibleBorderBottom = true,
   }) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
@@ -151,10 +172,21 @@ class ProfileSettingListViewWidget extends StatelessWidget {
               children: [
                 icon,
                 const Gap(20),
-                Text(label, style: labelStyle ?? AppTextStyles.bodyXLargeBold),
+                Text(
+                  label,
+                  style: labelStyle ??
+                      AppTextStyles.bodyXLargeBold.copyWith(
+                          color: AppColors.lightAppColor.greyscale900),
+                ),
               ],
             ),
-            trailing ?? Assets.icons.arrowRight2.svg(width: 20, height: 20),
+            trailing ??
+                Assets.icons.arrowRight2.svg(
+                  width: 20,
+                  height: 20,
+                  colorFilter: ColorFilter.mode(
+                      AppColors.lightAppColor.greyscale900, BlendMode.srcIn),
+                ),
           ],
         ),
       ),

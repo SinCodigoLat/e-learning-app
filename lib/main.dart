@@ -43,11 +43,9 @@ Future<void> initApp({
   CoreLog.i('Load App config: $loadAppConfig');
 
   runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider.value(
-            value: SL.get<AppBloc>()..add(AppStartedEvent(loadAppConfig))),
-      ],
+    BlocProvider(
+      create: (context) =>
+          SL.get<AppBloc>()..add(AppStartedEvent(loadAppConfig)),
       child: _MyApp(config: loadAppConfig),
     ),
   );
@@ -85,8 +83,6 @@ class _MyAppState extends FoundationState<_MyApp, AppBloc> {
       title: SL.get<EnvironmentConfigurable>().getBrandName(),
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.light,
       supportedLocales: S.delegate.supportedLocales,
       localizationsDelegates: const [
         S.delegate,

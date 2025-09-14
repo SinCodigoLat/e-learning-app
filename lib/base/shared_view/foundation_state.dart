@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 
 import '../../di/di.dart';
 import '../../resource/generated/assets.gen.dart';
+import '../../ui/theme/bloc/theme_bloc.dart';
+import '../../ui/theme/bloc/theme_event.dart';
 import '../bloc/base_bloc/base_bloc.dart';
 import '../bloc/base_bloc/base_event.dart';
 import '../bloc/base_bloc/base_state.dart';
@@ -18,21 +20,30 @@ import '../navigator/app_navigator.dart';
 
 enum LoadingType { circle, line }
 
-abstract class FoundationState<P extends StatefulWidget, T extends BaseBloc<BaseEvent, BaseState>> extends State<P> {
+abstract class FoundationState<P extends StatefulWidget,
+    T extends BaseBloc<BaseEvent, BaseState>> extends State<P> {
   late final AppNavigator navigator = SL.get<AppNavigator>();
   late final CommonBloc commonBloc = SL.get<CommonBloc>();
   late final T bloc = SL.get<T>()
     ..navigator = navigator
     ..commonBloc = commonBloc;
+  late final ThemeBloc themeBloc = SL.get<ThemeBloc>();
 
   bool get shouldUseApplicationWidget => false;
 
   LoadingType get loadingType => LoadingType.line;
 
   @override
+  void initState() {
+    super.initState();
+    themeBloc.add(ThemeLoadEvent());
+  }
+
+  @override
   void dispose() {
     commonBloc.close();
     bloc.close();
+    themeBloc.close();
     super.dispose();
   }
 
@@ -46,9 +57,12 @@ abstract class FoundationState<P extends StatefulWidget, T extends BaseBloc<Base
         providers: [
           BlocProvider.value(value: commonBloc),
           BlocProvider.value(value: bloc),
+          BlocProvider.value(value: themeBloc),
         ],
         child: BlocListener<CommonBloc, CommonState>(
-          listenWhen: (previous, current) => previous.exception != current.exception && current.exception != null,
+          listenWhen: (previous, current) =>
+              previous.exception != current.exception &&
+              current.exception != null,
           listener: (_, state) => handleException(state.exception!),
           child: buildListeners(
             child: shouldUseApplicationWidget
@@ -61,10 +75,13 @@ abstract class FoundationState<P extends StatefulWidget, T extends BaseBloc<Base
                           builder: (_, isLoading) {
                             return AnimatedSwitcher(
                               duration: const MediumDuration(),
-                              transitionBuilder: (child, animation) => FadeTransition(opacity: animation, child: child),
+                              transitionBuilder: (child, animation) =>
+                                  FadeTransition(
+                                      opacity: animation, child: child),
                               child: Visibility(
                                 visible: isLoading,
-                                key: ValueKey<String>('loading_core_$isLoading'),
+                                key:
+                                    ValueKey<String>('loading_core_$isLoading'),
                                 child: buildLoading(),
                               ),
                             );
@@ -82,12 +99,15 @@ abstract class FoundationState<P extends StatefulWidget, T extends BaseBloc<Base
   Widget buildListeners({required Widget child}) => child;
 
   Widget buildLoading() {
-    if (loadingType == LoadingType.circle) return const Center(child: CircularProgressIndicator());
+    if (loadingType == LoadingType.circle)
+      return const Center(child: CircularProgressIndicator());
     return Stack(
       fit: StackFit.expand,
       children: [
         ModalBarrier(color: Colors.black.withOpacity(.16), dismissible: false),
-        Transform.scale(scale: .25, child: Assets.animations.loading.lottie(fit: BoxFit.scaleDown)),
+        Transform.scale(
+            scale: .25,
+            child: Assets.animations.loading.lottie(fit: BoxFit.scaleDown)),
       ],
     );
   }
