@@ -13,7 +13,7 @@ class AppEnvironment extends EnvironmentConfigurable {
   });
 
   static AppEnvironment dev = AppEnvironment(
-    apiBaseUrl: 'http://localhost:3000',
+    apiBaseUrl: 'http://localhost:3001',
     brandName: 'E-Learning',
   );
 

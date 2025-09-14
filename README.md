@@ -80,8 +80,8 @@ This project includes a local mock API server for development. The server provid
 - `GET /api/courses/{id}/reviews` - Course reviews
 
 ### Server Details:
-- **Port**: 3000
-- **Base URL**: http://localhost:3000/api
+- **Port**: 3001
+- **Base URL**: http://localhost:3001 (supports both /api/ and direct routes)
 - **Data**: Stored in `db.json`
 - **Script**: `api_server.py`
 

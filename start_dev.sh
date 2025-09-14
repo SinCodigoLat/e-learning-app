@@ -19,7 +19,7 @@ sleep 3
 
 # Test the API server
 echo "🔍 Testing API endpoints..."
-if curl -s http://localhost:3000/api/courses/popular > /dev/null; then
+if curl -s http://localhost:3001/profile > /dev/null; then
     echo "✅ API Server is responding correctly"
 else
     echo "❌ API Server is not responding"
@@ -35,7 +35,7 @@ echo "✅ Flutter app started with PID: $FLUTTER_PID"
 echo ""
 echo "🎉 Development environment is ready!"
 echo "=================================="
-echo "📡 Mock API Server: http://localhost:3000"
+echo "📡 Mock API Server: http://localhost:3001"
 echo "📱 Flutter App: Running on iPhone 16 Pro simulator"
 echo ""
 echo "Available API endpoints:"

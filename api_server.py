@@ -14,31 +14,34 @@ class APIHandler(http.server.SimpleHTTPRequestHandler):
         with open('db.json', 'r') as f:
             db = json.load(f)
         
-        # Route handling
-        if path == '/api/courses/popular':
+        # Route handling - support both /api/ and direct routes
+        # Remove /api prefix if present for consistent handling
+        clean_path = path.replace('/api', '') if path.startswith('/api') else path
+        
+        if clean_path == '/courses/popular':
             data = db.get('courses/popular', [])
-        elif path == '/api/categories':
+        elif clean_path == '/categories':
             data = db.get('categories', [])
-        elif path == '/api/mentors':
+        elif clean_path == '/mentors':
             data = db.get('mentors', [])
-        elif path == '/api/profile':
+        elif clean_path == '/profile':
             data = db.get('profile', {})
-        elif path == '/api/promote':
+        elif clean_path == '/promote':
             data = db.get('promote', [])
-        elif path == '/api/search/suggestions':
+        elif clean_path == '/search/suggestions':
             data = db.get('search/suggestions', [])
-        elif path == '/api/search/history':
+        elif clean_path == '/search/history':
             data = db.get('searchHistory', [])
-        elif path == '/api/courses':
+        elif clean_path == '/courses':
             data = db.get('courses', [])
-        elif path.startswith('/api/course/'):
-            course_id = path.split('/')[-1]
+        elif clean_path.startswith('/course/'):
+            course_id = clean_path.split('/')[-1]
             data = db.get('course', {}).get(course_id, {})
-        elif path.startswith('/api/courses/') and '/lessons' in path:
-            course_id = path.split('/')[2]
+        elif clean_path.startswith('/courses/') and '/lessons' in clean_path:
+            course_id = clean_path.split('/')[2]
             data = db.get(f'courses/{course_id}/lessons', [])
-        elif path.startswith('/api/courses/') and '/reviews' in path:
-            course_id = path.split('/')[2]
+        elif clean_path.startswith('/courses/') and '/reviews' in clean_path:
+            course_id = clean_path.split('/')[2]
             data = db.get(f'courses/{course_id}/reviews', [])
         else:
             # Default to serving the file directly
@@ -70,7 +73,7 @@ class APIHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
 
 if __name__ == "__main__":
-    PORT = 3000
+    PORT = 3001
     with socketserver.TCPServer(("", PORT), APIHandler) as httpd:
         print(f"API Server running on http://localhost:{PORT}")
         print("Available endpoints:")
