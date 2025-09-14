@@ -10,20 +10,31 @@ class CourseResponseDto with _$CourseResponseDto {
     String? title,
     String? category,
     String? image,
+    @JsonKey(name: 'image_url') String? imageUrl,
     double? rating,
-    int? reviewsCount,
+    @JsonKey(name: 'reviews_count') int? reviewsCount,
     int? price,
-    int? originalPrice,
+    @JsonKey(name: 'original_price') int? originalPrice,
     int? students,
+    @JsonKey(name: 'students_count') int? studentsCount,
     int? duration,
+    @JsonKey(name: 'duration_hours') int? durationHours,
     bool? certificate,
     MentorResponseDto? mentor,
     String? about,
+    String? description,
     List<ToolResponseDto>? tools,
-    bool? isFavourite,
+    @JsonKey(name: 'is_favourite') bool? isFavourite,
+    @JsonKey(name: 'is_featured') bool? isFeatured,
+    @JsonKey(name: 'views_count') int? viewsCount,
+    @JsonKey(name: 'likes_count') int? likesCount,
+    String? level,
+    String? language,
+    @JsonKey(name: 'popularity_score') double? popularityScore,
   }) = _CourseResponseDto;
 
-  factory CourseResponseDto.fromJson(Map<String, Object?> json) => _$CourseResponseDtoFromJson(json);
+  factory CourseResponseDto.fromJson(Map<String, Object?> json) =>
+      _$CourseResponseDtoFromJson(json);
 }
 
 @freezed
@@ -33,5 +44,6 @@ class ToolResponseDto with _$ToolResponseDto {
     String? iconUrl,
   }) = _ToolResponseDto;
 
-  factory ToolResponseDto.fromJson(Map<String, Object?> json) => _$ToolResponseDtoFromJson(json);
+  factory ToolResponseDto.fromJson(Map<String, Object?> json) =>
+      _$ToolResponseDtoFromJson(json);
 }

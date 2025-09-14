@@ -9,10 +9,16 @@ import 'package:e_learning_app/ui/widgets/course/course_rating_widget.dart';
 import 'package:gap/gap.dart';
 
 class CourseInformationWidget extends StatelessWidget {
-  const CourseInformationWidget({super.key, required this.item, required this.onToggleFavorite});
+  const CourseInformationWidget({
+    super.key,
+    required this.item,
+    required this.onToggleFavorite,
+    this.isEnrolled = false,
+  });
 
   final CourseEntity item;
   final VoidCallback onToggleFavorite;
+  final bool isEnrolled;
 
   @override
   Widget build(BuildContext context) {
@@ -53,20 +59,24 @@ class CourseInformationWidget extends StatelessWidget {
             ),
           ],
         ),
-        const Gap(20),
-        RichText(
-            text: TextSpan(
-          children: [
-            TextSpan(text: '\$${item.price}', style: AppTextStyles.h3Bold.withPrimaryColor()),
-            const WidgetSpan(child: SizedBox(width: 8)),
-            TextSpan(
-                text: '\$${item.originalPrice}',
-                style: AppTextStyles.h5Bold.copyWith(
-                  color: AppColors.current.greyscale500,
-                  decoration: TextDecoration.lineThrough,
-                )),
-          ],
-        )),
+        if (!isEnrolled) ...[
+          const Gap(20),
+          RichText(
+              text: TextSpan(
+            children: [
+              TextSpan(
+                  text: '\$${item.price}',
+                  style: AppTextStyles.h3Bold.withPrimaryColor()),
+              const WidgetSpan(child: SizedBox(width: 8)),
+              TextSpan(
+                  text: '\$${item.originalPrice}',
+                  style: AppTextStyles.h5Bold.copyWith(
+                    color: AppColors.current.greyscale500,
+                    decoration: TextDecoration.lineThrough,
+                  )),
+            ],
+          )),
+        ],
       ],
     );
   }

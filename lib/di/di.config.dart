@@ -21,6 +21,8 @@ import '../data/data_source/remote/service/auth_service.dart' as _i762;
 import '../data/data_source/remote/service/course_service.dart' as _i417;
 import '../data/data_source/remote/service/supabase_course_service.dart'
     as _i498;
+import '../data/data_source/remote/service/supabase_mentor_service.dart'
+    as _i242;
 import '../data/data_source/remote/service/supabase_service.dart' as _i778;
 import '../data/data_source/remote/service/supabase_user_service.dart' as _i210;
 import '../data/data_source/remote/service/user_service.dart' as _i867;
@@ -36,6 +38,8 @@ import '../domain/use_case/auth/login_use_case.dart' as _i924;
 import '../domain/use_case/auth/logout_use_case.dart' as _i92;
 import '../domain/use_case/auth/sign_up_use_case.dart' as _i181;
 import '../domain/use_case/config/load_app_config_use_case.dart' as _i839;
+import '../domain/use_case/course/check_user_enrollment_use_case.dart' as _i372;
+import '../domain/use_case/course/enroll_course_use_case.dart' as _i972;
 import '../domain/use_case/course/fetch_category_list_use_case.dart' as _i1026;
 import '../domain/use_case/course/fetch_course_detail_use_case.dart' as _i538;
 import '../domain/use_case/course/fetch_lesson_list_from_course_id_use_case.dart'
@@ -50,6 +54,7 @@ import '../domain/use_case/course/fetch_search_history_list_use_case.dart'
 import '../domain/use_case/course/fetch_search_suggestion_list_use_case.dart'
     as _i627;
 import '../domain/use_case/course/fetch_top_mentor_list_use_case.dart' as _i193;
+import '../domain/use_case/course/fetch_user_courses_use_case.dart' as _i992;
 import '../domain/use_case/course/toggle_favourite_course_use_case.dart'
     as _i954;
 import '../domain/use_case/course/watch_favorite_course_stream_use_case.dart'
@@ -65,6 +70,7 @@ import '../ui/course/page/course_list/bloc/course_list_bloc.dart' as _i792;
 import '../ui/home/bloc/home_bloc.dart' as _i401;
 import '../ui/home/page/home_search/bloc/home_search_bloc.dart' as _i702;
 import '../ui/login/bloc/login_bloc.dart' as _i919;
+import '../ui/my_course/bloc/my_course_bloc.dart' as _i129;
 import '../ui/profile/bloc/logout_bloc.dart' as _i773;
 import '../ui/profile/pages/edit_profile/bloc/edit_profile_bloc.dart' as _i90;
 import '../ui/profile/pages/setting_notification/bloc/setting_notification_bloc.dart'
@@ -109,10 +115,16 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i210.SupabaseUserService(gh<_i454.SupabaseClient>()));
     gh.lazySingleton<_i498.SupabaseCourseService>(
         () => _i498.SupabaseCourseService(gh<_i454.SupabaseClient>()));
+    gh.lazySingleton<_i242.SupabaseMentorService>(
+        () => _i242.SupabaseMentorService(gh<_i454.SupabaseClient>()));
     gh.lazySingleton<_i492.CourseRepo>(
         () => _i396.CourseRepoImpl(gh<_i498.SupabaseCourseService>()));
     gh.lazySingleton<_i623.AuthRepo>(
         () => _i183.AuthRepoImpl(gh<_i778.SupabaseService>()));
+    gh.factory<_i372.CheckUserEnrollmentUseCase>(
+        () => _i372.CheckUserEnrollmentUseCase(gh<_i492.CourseRepo>()));
+    gh.factory<_i992.FetchUserCoursesUseCase>(
+        () => _i992.FetchUserCoursesUseCase(gh<_i492.CourseRepo>()));
     gh.factory<_i92.LogoutUseCase>(
         () => _i92.LogoutUseCase(gh<_i623.AuthRepo>()));
     gh.factory<_i924.LoginUseCase>(
@@ -129,6 +141,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i11.UpdateProfileUseCase(gh<_i575.UserRepo>()));
     gh.factory<_i360.ListenUserProfileStreamUseCase>(
         () => _i360.ListenUserProfileStreamUseCase(gh<_i575.UserRepo>()));
+    gh.factory<_i129.MyCourseBloc>(
+        () => _i129.MyCourseBloc(gh<_i992.FetchUserCoursesUseCase>()));
     gh.lazySingleton<_i773.LogoutBloc>(
         () => _i773.LogoutBloc(gh<_i92.LogoutUseCase>()));
     gh.factory<_i63.CommonBloc>(
@@ -155,6 +169,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i141.FetchSearchHistoryListUseCase(gh<_i492.CourseRepo>()));
     gh.factory<_i193.FetchTopMentorListUseCase>(
         () => _i193.FetchTopMentorListUseCase(gh<_i492.CourseRepo>()));
+    gh.factory<_i972.EnrollCourseUseCase>(
+        () => _i972.EnrollCourseUseCase(gh<_i492.CourseRepo>()));
     gh.factory<_i401.HomeBloc>(() => _i401.HomeBloc(
           gh<_i974.FetchPromoteListUseCase>(),
           gh<_i280.FetchMostPopularCourseUseCase>(),
@@ -179,6 +195,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i430.FetchLessonListFromCourseIdUseCase>(),
           gh<_i408.FetchReviewListFromCourseIdUseCase>(),
           gh<_i954.ToggleFavouriteCourseUseCase>(),
+          gh<_i972.EnrollCourseUseCase>(),
+          gh<_i372.CheckUserEnrollmentUseCase>(),
         ));
     return this;
   }

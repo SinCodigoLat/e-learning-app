@@ -1,7 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_learning_app/base/constants/ui/app_colors.dart';
 import 'package:e_learning_app/base/constants/ui/app_text_styles.dart';
@@ -24,6 +23,8 @@ import 'package:e_learning_app/ui/course/page/course_detail/components/course_pe
 import 'package:e_learning_app/ui/course/page/course_detail/components/tabs/course_about_tab_widget.dart';
 import 'package:e_learning_app/ui/course/page/course_detail/components/tabs/course_lessons_tab_widget.dart';
 import 'package:e_learning_app/ui/course/page/course_detail/components/tabs/course_reviews_tab_widget.dart';
+import 'package:e_learning_app/ui/widgets/dialogs/enrollment_success_dialog.dart';
+import 'package:e_learning_app/navigation/router.gr.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../resource/generated/assets.gen.dart';
@@ -38,7 +39,8 @@ class CourseDetailPage extends StatefulWidget {
   State<CourseDetailPage> createState() => _CourseDetailPageState();
 }
 
-class _CourseDetailPageState extends FoundationState<CourseDetailPage, CourseDetailBloc> {
+class _CourseDetailPageState
+    extends FoundationState<CourseDetailPage, CourseDetailBloc> {
   final ScrollController _scrollController = ScrollController();
 
   final ValueNotifier<bool> isHeaderVisible = ValueNotifier(false);
@@ -60,7 +62,8 @@ class _CourseDetailPageState extends FoundationState<CourseDetailPage, CourseDet
   }
 
   void _onScroll() {
-    final shouldShowHeader = _scrollController.position.pixels >= _scrollThreshold;
+    final shouldShowHeader =
+        _scrollController.position.pixels >= _scrollThreshold;
     if (isHeaderVisible.value != shouldShowHeader) {
       isHeaderVisible.value = shouldShowHeader;
     }
@@ -70,15 +73,42 @@ class _CourseDetailPageState extends FoundationState<CourseDetailPage, CourseDet
   Widget buildPage(BuildContext context) {
     return DefaultTabController(
       length: CourseTab.values.length,
-      child: BlocBuilder<CourseDetailBloc, CourseDetailState>(
-        buildWhen: (prev, curr) => prev.course != curr.course,
+      child: BlocConsumer<CourseDetailBloc, CourseDetailState>(
+        buildWhen: (prev, curr) =>
+            prev.course != curr.course || prev.isEnrolled != curr.isEnrolled,
+        listenWhen: (prev, curr) {
+          print(
+              '🔍 CourseDetailPage - listenWhen: prev=${prev.enrollmentSuccess}, curr=${curr.enrollmentSuccess}');
+          return curr.enrollmentSuccess == true;
+        },
+        listener: (context, state) {
+          print(
+              '🔍 CourseDetailPage - listener called: enrollmentSuccess=${state.enrollmentSuccess}');
+          if (state.enrollmentSuccess) {
+            print('🔍 CourseDetailPage - Showing success dialog');
+            // Mostrar diálogo de felicitaciones
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (context) => EnrollmentSuccessDialog(
+                courseTitle: state.course.title,
+                coursePrice: state.course.displayPrice(),
+              ),
+            );
+            // Resetear el estado para evitar mostrar el diálogo múltiples veces
+            bloc.add(ResetEnrollmentSuccessEvent());
+          }
+        },
         builder: (context, state) {
+          print(
+              '🔍 CourseDetailPage - Building with isEnrolled: ${state.isEnrolled}');
           return CommonScaffold(
             body: Stack(
               children: [
                 NestedScrollView(
                   controller: _scrollController,
-                  headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+                  headerSliverBuilder:
+                      (BuildContext context, bool innerBoxIsScrolled) {
                     return [
                       ValueListenableBuilder<bool>(
                         valueListenable: isHeaderVisible,
@@ -89,30 +119,40 @@ class _CourseDetailPageState extends FoundationState<CourseDetailPage, CourseDet
                             scrolledUnderElevation: 0,
                             backgroundColor: AppColors.current.otherWhite,
                             title: AnimatedCrossFade(
-                                firstChild: Text(state.course.title, style: AppTextStyles.h4Bold),
+                                firstChild: Text(state.course.title,
+                                    style: AppTextStyles.h4Bold),
                                 secondChild: const SizedBox.shrink(),
-                                crossFadeState: !visible ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                                crossFadeState: !visible
+                                    ? CrossFadeState.showSecond
+                                    : CrossFadeState.showFirst,
                                 duration: const ShortDuration()),
                             leading: IconButton(
                               onPressed: () => AutoRouter.of(context).back(),
                               icon: AnimatedCrossFade(
                                   firstChild: _backButton(),
-                                  secondChild: _backButton(ColorFilter.mode(AppColors.current.otherWhite, BlendMode.srcIn)),
-                                  crossFadeState: !visible ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                                  secondChild: _backButton(ColorFilter.mode(
+                                      AppColors.current.otherWhite,
+                                      BlendMode.srcIn)),
+                                  crossFadeState: !visible
+                                      ? CrossFadeState.showSecond
+                                      : CrossFadeState.showFirst,
                                   duration: const ShortDuration()),
                             ),
                             flexibleSpace: FlexibleSpaceBar(
-                              background: CommonImageView(imageUrl: state.course.image),
+                              background:
+                                  CommonImageView(imageUrl: state.course.image),
                             ),
                           );
                         },
                       ),
-                      SliverToBoxAdapter(child: _information(state.course)),
+                      SliverToBoxAdapter(
+                          child: _information(state.course, state.isEnrolled)),
                       SliverPersistentHeader(
                         pinned: true,
                         delegate: CoursePersistentHeaderDelegate(
                           onTap: (i) {
-                            bloc.add(CourseTabChangedEvent(tab: CourseTab.values[i]));
+                            bloc.add(CourseTabChangedEvent(
+                                tab: CourseTab.values[i]));
                           },
                         ),
                       )
@@ -120,16 +160,22 @@ class _CourseDetailPageState extends FoundationState<CourseDetailPage, CourseDet
                   },
                   body: TabBarView(children: [
                     CourseAboutTabWidget(item: state.course),
-                    BlocSelector<CourseDetailBloc, CourseDetailState, List<LessonEntity>>(
+                    BlocSelector<CourseDetailBloc, CourseDetailState,
+                        List<LessonEntity>>(
                       selector: (state) => state.lessons,
                       builder: (_, lessons) {
-                        return CourseLessonsTabWidget(lessons: lessons, course: state.course);
+                        return CourseLessonsTabWidget(
+                            lessons: lessons,
+                            course: state.course,
+                            isEnrolled: state.isEnrolled);
                       },
                     ),
-                    BlocSelector<CourseDetailBloc, CourseDetailState, List<ReviewEntity>>(
+                    BlocSelector<CourseDetailBloc, CourseDetailState,
+                        List<ReviewEntity>>(
                       selector: (state) => state.reviews,
                       builder: (_, reviews) {
-                        return CourseReviewsTabWidget(reviews: reviews, course: state.course);
+                        return CourseReviewsTabWidget(
+                            reviews: reviews, course: state.course);
                       },
                     ),
                   ]),
@@ -140,8 +186,25 @@ class _CourseDetailPageState extends FoundationState<CourseDetailPage, CourseDet
             bottomNavigationBar: CommonBottomNavigatorBarBackground(
               visibleBorder: false,
               child: CommonButton(
-                onPressed: () {},
-                title: 'Enroll Course - ${state.course.displayPrice()}',
+                onPressed: state.isEnrolled
+                    ? () {
+                        // Navegar a la primera lección disponible
+                        if (state.lessons.isNotEmpty) {
+                          final firstLesson = state.lessons.first;
+                          AutoRouter.of(context).push(LessonVideoPlayerRoute(
+                            videoUrl:
+                                'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+                            title: firstLesson.title,
+                          ));
+                        }
+                      }
+                    : () {
+                        bloc.add(EnrollCourseRequestedEvent(
+                            courseId: state.course.id));
+                      },
+                title: state.isEnrolled
+                    ? 'Continuar'
+                    : 'Enroll Course - ${state.course.displayPrice()}',
               ),
             ),
           );
@@ -154,14 +217,16 @@ class _CourseDetailPageState extends FoundationState<CourseDetailPage, CourseDet
     return Assets.icons.arrowLeft.svg(colorFilter: colorFilter);
   }
 
-  Widget _information(CourseEntity item) {
+  Widget _information(CourseEntity item, bool isEnrolled) {
     return Padding(
-      padding: const EdgeInsets.all(Dimens.paddingHorizontalLarge).copyWith(bottom: 10),
+      padding: const EdgeInsets.all(Dimens.paddingHorizontalLarge)
+          .copyWith(bottom: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CourseInformationWidget(
             item: item,
+            isEnrolled: isEnrolled,
             onToggleFavorite: () {
               bloc.add(ToggleFavoriteCourseEvent());
             },

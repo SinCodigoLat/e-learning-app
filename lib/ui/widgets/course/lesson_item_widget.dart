@@ -3,65 +3,60 @@ import 'package:e_learning_app/domain/entity/course/lesson_entity.dart';
 import 'package:gap/gap.dart';
 
 import '../../../base/constants/ui/app_colors.dart';
-import '../../../base/constants/ui/app_text_styles.dart';
 import '../../../base/constants/ui/dimens.dart';
-import '../../../resource/generated/assets.gen.dart';
+import 'lesson_action_button_widget.dart';
+import 'lesson_info_widget.dart';
 
 class LessonItemWidget extends StatelessWidget {
-  const LessonItemWidget({super.key, required this.item, required this.index, this.onTap});
+  const LessonItemWidget({
+    super.key,
+    required this.item,
+    required this.index,
+    this.onTap,
+    this.isUnlocked,
+    this.isCompleted = false,
+    this.onMarkCompleted,
+  });
 
   final LessonEntity item;
   final int index;
   final VoidCallback? onTap;
+  final bool? isUnlocked;
+  final bool isCompleted;
+  final VoidCallback? onMarkCompleted;
 
   @override
   Widget build(BuildContext context) {
+    final unlocked = isUnlocked ?? item.isFree;
+    final actionType = _getActionType(unlocked);
+
     return GestureDetector(
       onTap: () {
-        if(!item.isFree) return;
+        if (!unlocked) return;
         onTap?.call();
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: Dimens.paddingVertical, horizontal: 20),
-        decoration: BoxDecoration(
-            color: AppColors.current.otherWhite,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [BoxShadow(offset: const Offset(0, 2), blurRadius: 16, color: const Color(0xff04060F).withOpacity(.05))]),
+        padding: const EdgeInsets.symmetric(
+          vertical: Dimens.paddingVertical,
+          horizontal: 20,
+        ),
+        decoration: _buildDecoration(),
         child: IntrinsicHeight(
           child: Row(
             children: [
               Expanded(
-                child: Row(
-                  children: [
-                    Container(
-                      width: 44,
-                      height: double.infinity,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColors.current.transparentBlue,
-                      ),
-                      child: Text(_getIndex(), style: AppTextStyles.h6Bold.withPrimaryColor()),
-                    ),
-                    const Gap(Dimens.paddingHorizontal),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(item.title, style: AppTextStyles.h6Bold, maxLines: 2, overflow: TextOverflow.ellipsis),
-                          const Gap(6),
-                          Text('${item.duration} mins', style: AppTextStyles.bodyMedium)
-                        ],
-                      ),
-                    )
-                  ],
+                child: LessonInfoWidget(
+                  lesson: item,
+                  index: index,
+                  isCompleted: isCompleted,
+                  onMarkCompleted: onMarkCompleted,
                 ),
               ),
               const Gap(Dimens.paddingHorizontal),
-              // if()
-              item.isFree
-                  ? Assets.icons.playBold.svg(colorFilter: ColorFilter.mode(AppColors.current.primary500, BlendMode.srcIn))
-                  : Assets.icons.lockCurved.svg(),
+              LessonActionButtonWidget(
+                actionType: actionType,
+                onPlay: unlocked ? onTap : null,
+              ),
             ],
           ),
         ),
@@ -69,5 +64,27 @@ class LessonItemWidget extends StatelessWidget {
     );
   }
 
-  String _getIndex() => (index + 1).toString().padLeft(2, '0');
+  BoxDecoration _buildDecoration() {
+    return BoxDecoration(
+      color: AppColors.current.otherWhite,
+      borderRadius: BorderRadius.circular(16),
+      boxShadow: [
+        BoxShadow(
+          offset: const Offset(0, 2),
+          blurRadius: 16,
+          color: const Color(0xff04060F).withOpacity(.05),
+        ),
+      ],
+    );
+  }
+
+  LessonActionType _getActionType(bool unlocked) {
+    if (isCompleted) {
+      return LessonActionType.completed;
+    } else if (unlocked) {
+      return LessonActionType.unlocked;
+    } else {
+      return LessonActionType.locked;
+    }
+  }
 }

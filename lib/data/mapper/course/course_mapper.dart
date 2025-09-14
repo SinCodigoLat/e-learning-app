@@ -10,18 +10,20 @@ abstract final class CourseMapper {
       id: dto?.id ?? '',
       title: dto?.title ?? '',
       category: dto?.category ?? '',
-      image: dto?.image ?? '',
+      image: dto?.imageUrl ?? dto?.image ?? '',
       price: dto?.price ?? 0,
       originalPrice: dto?.originalPrice ?? 0,
-      rating: dto?.rating ?? .0,
+      rating: dto?.rating ?? 0.0,
       reviewsCount: dto?.reviewsCount ?? 0,
-      students: dto?.students ?? 0,
-      duration: dto?.duration ?? 0,
+      students: dto?.studentsCount ?? dto?.students ?? 0,
+      duration: dto?.durationHours != null
+          ? dto!.durationHours! * 60
+          : (dto?.duration ?? 0), // Convertir horas a minutos
       certificate: dto?.certificate ?? false,
       mentor: MentorMapper.mapToEntity(dto?.mentor),
       tools: dto?.tools?.map(ToolMapper.mapToEntity).toList() ?? [],
-      about: dto?.about ?? '',
-      isFavourite: false,
+      about: dto?.description ?? dto?.about ?? '',
+      isFavourite: dto?.isFavourite ?? false,
     );
   }
 }

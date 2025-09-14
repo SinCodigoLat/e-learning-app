@@ -34,7 +34,8 @@ final class SubmitCourseReviewEvent extends CourseDetailEvent {
   final String courseId;
   final int rating;
   final String review;
-  SubmitCourseReviewEvent({required this.courseId, required this.rating, required this.review});
+  SubmitCourseReviewEvent(
+      {required this.courseId, required this.rating, required this.review});
 
   @override
   List<Object?> get props => [
@@ -44,8 +45,7 @@ final class SubmitCourseReviewEvent extends CourseDetailEvent {
       ];
 }
 
-final class ToggleFavoriteCourseEvent extends CourseDetailEvent {
-}
+final class ToggleFavoriteCourseEvent extends CourseDetailEvent {}
 
 final class CourseTabChangedEvent extends CourseDetailEvent {
   final CourseTab tab;
@@ -54,4 +54,9 @@ final class CourseTabChangedEvent extends CourseDetailEvent {
 
   @override
   List<Object?> get props => [tab];
+}
+
+final class ResetEnrollmentSuccessEvent extends CourseDetailEvent {
+  @override
+  List<Object?> get props => [];
 }

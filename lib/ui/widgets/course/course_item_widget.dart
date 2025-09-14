@@ -32,7 +32,8 @@ class _CourseItemWidgetState extends State<CourseItemWidget> {
   @override
   void initState() {
     super.initState();
-    _subscription = SL.get<WatchFavoriteCourseStreamUseCase>().invoke().listen((data) {
+    _subscription =
+        SL.get<WatchFavoriteCourseStreamUseCase>().invoke().listen((data) {
       if (data.id == widget.item.id) {
         setState(() {
           _isFav = data.isFav;
@@ -82,12 +83,17 @@ class _CourseItemWidgetState extends State<CourseItemWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CourseCategoryNameWidget(name: widget.item.category),
-
                         _isFav
-                            ? Assets.icons.bookmarkBold
-                            .svg(width: 24, colorFilter: ColorFilter.mode(AppColors.current.primary500, BlendMode.srcIn))
-                            : Assets.icons.bookmarkCurved
-                                .svg(width: 24, colorFilter: ColorFilter.mode(AppColors.current.primary500, BlendMode.srcIn))
+                            ? Assets.icons.bookmarkBold.svg(
+                                width: 24,
+                                colorFilter: ColorFilter.mode(
+                                    AppColors.current.primary500,
+                                    BlendMode.srcIn))
+                            : Assets.icons.bookmarkCurved.svg(
+                                width: 24,
+                                colorFilter: ColorFilter.mode(
+                                    AppColors.current.primary500,
+                                    BlendMode.srcIn))
                       ],
                     ),
                     const Gap(12),
@@ -96,7 +102,9 @@ class _CourseItemWidgetState extends State<CourseItemWidget> {
                     RichText(
                         text: TextSpan(
                       children: [
-                        TextSpan(text: '\$${widget.item.price}', style: AppTextStyles.h6Bold.withPrimaryColor()),
+                        TextSpan(
+                            text: '\$${widget.item.price}',
+                            style: AppTextStyles.h6Bold.withPrimaryColor()),
                         const WidgetSpan(child: SizedBox(width: 8)),
                         TextSpan(
                             text: '\$${widget.item.originalPrice}',
@@ -107,7 +115,9 @@ class _CourseItemWidgetState extends State<CourseItemWidget> {
                       ],
                     )),
                     const Gap(12),
-                    CourseRatingWidget(total: widget.item.reviewsCount, rating: widget.item.rating),
+                    CourseRatingWidget(
+                        total: widget.item.reviewsCount,
+                        rating: widget.item.rating),
                   ],
                 ),
               )

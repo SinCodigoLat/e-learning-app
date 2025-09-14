@@ -15,7 +15,11 @@ import '../../../base/constants/ui/app_colors.dart';
 
 class HomeMostPopularCoursesWidget extends StatelessWidget {
   const HomeMostPopularCoursesWidget(
-      {super.key, required this.courses, required this.categories, required this.onCategoryChanged, required this.categoryId});
+      {super.key,
+      required this.courses,
+      required this.categories,
+      required this.onCategoryChanged,
+      required this.categoryId});
 
   final List<CourseEntity> courses;
   final List<CategoryEntity> categories;
@@ -23,7 +27,8 @@ class HomeMostPopularCoursesWidget extends StatelessWidget {
 
   final ValueChanged<CategoryEntity> onCategoryChanged;
 
-  List<CourseEntity> get _courseList => courses.length > 5 ? courses.sublist(2).toList() : courses;
+  List<CourseEntity> get _courseList =>
+      courses.length > 5 ? courses.sublist(2).toList() : courses;
 
   @override
   Widget build(BuildContext context) {
@@ -31,25 +36,30 @@ class HomeMostPopularCoursesWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontalLarge),
+          padding: const EdgeInsets.symmetric(
+              horizontal: Dimens.paddingHorizontalLarge),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Most Popular Courses', style: AppTextStyles.h5Bold),
-              Text('See All', style: AppTextStyles.bodyLargeBold.withPrimaryColor()),
+              Text('See All',
+                  style: AppTextStyles.bodyLargeBold.withPrimaryColor()),
             ],
           ),
         ),
         const Gap(Dimens.paddingVerticalLarge),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontalLarge),
+          padding: const EdgeInsets.symmetric(
+              horizontal: Dimens.paddingHorizontalLarge),
           child: _categories(),
         ),
         Container(
           margin: const EdgeInsets.only(top: 5),
           color: AppColors.current.scaffoldColor,
-          padding: const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal).copyWith(top: 20),
+          padding:
+              const EdgeInsets.symmetric(horizontal: Dimens.paddingHorizontal)
+                  .copyWith(top: 20),
           child: _items(context),
         ),
       ],
@@ -72,12 +82,16 @@ class HomeMostPopularCoursesWidget extends StatelessWidget {
               onCategoryChanged.call(item);
             },
             label: Text(item.name),
-            labelStyle:
-                AppTextStyles.bodyLargeSemiBold.copyWith(color: selected ? AppColors.current.otherWhite : AppColors.current.primary500),
+            labelStyle: AppTextStyles.bodyLargeSemiBold.copyWith(
+                color: selected
+                    ? AppColors.current.otherWhite
+                    : AppColors.current.primary500),
             selected: selected,
             showCheckmark: false,
             selectedColor: AppColors.current.primary500,
-            color: WidgetStateProperty.all(selected ? AppColors.current.primary500 : AppColors.current.otherWhite),
+            color: WidgetStateProperty.all(selected
+                ? AppColors.current.primary500
+                : AppColors.current.otherWhite),
             shape: RoundedRectangleBorder(
               side: BorderSide(color: AppColors.current.primary500, width: 2),
               borderRadius: BorderRadius.circular(100),

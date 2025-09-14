@@ -9,12 +9,16 @@ final class CourseDetailState extends BaseState {
   final List<LessonEntity> lessons;
   final List<ReviewEntity> reviews;
   final CourseTab tab;
+  final bool enrollmentSuccess;
+  final bool isEnrolled;
 
   CourseDetailState({
     required this.course,
     this.lessons = const [],
     this.reviews = const [],
     required this.tab,
+    this.enrollmentSuccess = false,
+    this.isEnrolled = false,
   });
 
   CourseDetailState copyWith({
@@ -22,12 +26,16 @@ final class CourseDetailState extends BaseState {
     List<LessonEntity>? lessons,
     List<ReviewEntity>? reviews,
     CourseTab? tab,
+    bool? enrollmentSuccess,
+    bool? isEnrolled,
   }) {
     return CourseDetailState(
       course: course ?? this.course,
       lessons: lessons ?? this.lessons,
       reviews: reviews ?? this.reviews,
       tab: tab ?? this.tab,
+      enrollmentSuccess: enrollmentSuccess ?? this.enrollmentSuccess,
+      isEnrolled: isEnrolled ?? this.isEnrolled,
     );
   }
 
@@ -37,5 +45,7 @@ final class CourseDetailState extends BaseState {
         lessons,
         reviews,
         tab,
+        enrollmentSuccess,
+        isEnrolled,
       ];
 }

@@ -24,17 +24,37 @@ mixin _$CourseResponseDto {
   String? get title => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image_url')
+  String? get imageUrl => throw _privateConstructorUsedError;
   double? get rating => throw _privateConstructorUsedError;
+  @JsonKey(name: 'reviews_count')
   int? get reviewsCount => throw _privateConstructorUsedError;
   int? get price => throw _privateConstructorUsedError;
+  @JsonKey(name: 'original_price')
   int? get originalPrice => throw _privateConstructorUsedError;
   int? get students => throw _privateConstructorUsedError;
+  @JsonKey(name: 'students_count')
+  int? get studentsCount => throw _privateConstructorUsedError;
   int? get duration => throw _privateConstructorUsedError;
+  @JsonKey(name: 'duration_hours')
+  int? get durationHours => throw _privateConstructorUsedError;
   bool? get certificate => throw _privateConstructorUsedError;
   MentorResponseDto? get mentor => throw _privateConstructorUsedError;
   String? get about => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   List<ToolResponseDto>? get tools => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_favourite')
   bool? get isFavourite => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_featured')
+  bool? get isFeatured => throw _privateConstructorUsedError;
+  @JsonKey(name: 'views_count')
+  int? get viewsCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'likes_count')
+  int? get likesCount => throw _privateConstructorUsedError;
+  String? get level => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
+  @JsonKey(name: 'popularity_score')
+  double? get popularityScore => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,17 +73,27 @@ abstract class $CourseResponseDtoCopyWith<$Res> {
       String? title,
       String? category,
       String? image,
+      @JsonKey(name: 'image_url') String? imageUrl,
       double? rating,
-      int? reviewsCount,
+      @JsonKey(name: 'reviews_count') int? reviewsCount,
       int? price,
-      int? originalPrice,
+      @JsonKey(name: 'original_price') int? originalPrice,
       int? students,
+      @JsonKey(name: 'students_count') int? studentsCount,
       int? duration,
+      @JsonKey(name: 'duration_hours') int? durationHours,
       bool? certificate,
       MentorResponseDto? mentor,
       String? about,
+      String? description,
       List<ToolResponseDto>? tools,
-      bool? isFavourite});
+      @JsonKey(name: 'is_favourite') bool? isFavourite,
+      @JsonKey(name: 'is_featured') bool? isFeatured,
+      @JsonKey(name: 'views_count') int? viewsCount,
+      @JsonKey(name: 'likes_count') int? likesCount,
+      String? level,
+      String? language,
+      @JsonKey(name: 'popularity_score') double? popularityScore});
 
   $MentorResponseDtoCopyWith<$Res>? get mentor;
 }
@@ -85,17 +115,27 @@ class _$CourseResponseDtoCopyWithImpl<$Res, $Val extends CourseResponseDto>
     Object? title = freezed,
     Object? category = freezed,
     Object? image = freezed,
+    Object? imageUrl = freezed,
     Object? rating = freezed,
     Object? reviewsCount = freezed,
     Object? price = freezed,
     Object? originalPrice = freezed,
     Object? students = freezed,
+    Object? studentsCount = freezed,
     Object? duration = freezed,
+    Object? durationHours = freezed,
     Object? certificate = freezed,
     Object? mentor = freezed,
     Object? about = freezed,
+    Object? description = freezed,
     Object? tools = freezed,
     Object? isFavourite = freezed,
+    Object? isFeatured = freezed,
+    Object? viewsCount = freezed,
+    Object? likesCount = freezed,
+    Object? level = freezed,
+    Object? language = freezed,
+    Object? popularityScore = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -113,6 +153,10 @@ class _$CourseResponseDtoCopyWithImpl<$Res, $Val extends CourseResponseDto>
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       rating: freezed == rating
           ? _value.rating
@@ -134,9 +178,17 @@ class _$CourseResponseDtoCopyWithImpl<$Res, $Val extends CourseResponseDto>
           ? _value.students
           : students // ignore: cast_nullable_to_non_nullable
               as int?,
+      studentsCount: freezed == studentsCount
+          ? _value.studentsCount
+          : studentsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
       duration: freezed == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
+              as int?,
+      durationHours: freezed == durationHours
+          ? _value.durationHours
+          : durationHours // ignore: cast_nullable_to_non_nullable
               as int?,
       certificate: freezed == certificate
           ? _value.certificate
@@ -150,6 +202,10 @@ class _$CourseResponseDtoCopyWithImpl<$Res, $Val extends CourseResponseDto>
           ? _value.about
           : about // ignore: cast_nullable_to_non_nullable
               as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       tools: freezed == tools
           ? _value.tools
           : tools // ignore: cast_nullable_to_non_nullable
@@ -158,6 +214,30 @@ class _$CourseResponseDtoCopyWithImpl<$Res, $Val extends CourseResponseDto>
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isFeatured: freezed == isFeatured
+          ? _value.isFeatured
+          : isFeatured // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      viewsCount: freezed == viewsCount
+          ? _value.viewsCount
+          : viewsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      likesCount: freezed == likesCount
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      level: freezed == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as String?,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      popularityScore: freezed == popularityScore
+          ? _value.popularityScore
+          : popularityScore // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 
@@ -187,17 +267,27 @@ abstract class _$$CourseResponseDtoImplCopyWith<$Res>
       String? title,
       String? category,
       String? image,
+      @JsonKey(name: 'image_url') String? imageUrl,
       double? rating,
-      int? reviewsCount,
+      @JsonKey(name: 'reviews_count') int? reviewsCount,
       int? price,
-      int? originalPrice,
+      @JsonKey(name: 'original_price') int? originalPrice,
       int? students,
+      @JsonKey(name: 'students_count') int? studentsCount,
       int? duration,
+      @JsonKey(name: 'duration_hours') int? durationHours,
       bool? certificate,
       MentorResponseDto? mentor,
       String? about,
+      String? description,
       List<ToolResponseDto>? tools,
-      bool? isFavourite});
+      @JsonKey(name: 'is_favourite') bool? isFavourite,
+      @JsonKey(name: 'is_featured') bool? isFeatured,
+      @JsonKey(name: 'views_count') int? viewsCount,
+      @JsonKey(name: 'likes_count') int? likesCount,
+      String? level,
+      String? language,
+      @JsonKey(name: 'popularity_score') double? popularityScore});
 
   @override
   $MentorResponseDtoCopyWith<$Res>? get mentor;
@@ -218,17 +308,27 @@ class __$$CourseResponseDtoImplCopyWithImpl<$Res>
     Object? title = freezed,
     Object? category = freezed,
     Object? image = freezed,
+    Object? imageUrl = freezed,
     Object? rating = freezed,
     Object? reviewsCount = freezed,
     Object? price = freezed,
     Object? originalPrice = freezed,
     Object? students = freezed,
+    Object? studentsCount = freezed,
     Object? duration = freezed,
+    Object? durationHours = freezed,
     Object? certificate = freezed,
     Object? mentor = freezed,
     Object? about = freezed,
+    Object? description = freezed,
     Object? tools = freezed,
     Object? isFavourite = freezed,
+    Object? isFeatured = freezed,
+    Object? viewsCount = freezed,
+    Object? likesCount = freezed,
+    Object? level = freezed,
+    Object? language = freezed,
+    Object? popularityScore = freezed,
   }) {
     return _then(_$CourseResponseDtoImpl(
       id: freezed == id
@@ -246,6 +346,10 @@ class __$$CourseResponseDtoImplCopyWithImpl<$Res>
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       rating: freezed == rating
           ? _value.rating
@@ -267,9 +371,17 @@ class __$$CourseResponseDtoImplCopyWithImpl<$Res>
           ? _value.students
           : students // ignore: cast_nullable_to_non_nullable
               as int?,
+      studentsCount: freezed == studentsCount
+          ? _value.studentsCount
+          : studentsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
       duration: freezed == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
+              as int?,
+      durationHours: freezed == durationHours
+          ? _value.durationHours
+          : durationHours // ignore: cast_nullable_to_non_nullable
               as int?,
       certificate: freezed == certificate
           ? _value.certificate
@@ -283,6 +395,10 @@ class __$$CourseResponseDtoImplCopyWithImpl<$Res>
           ? _value.about
           : about // ignore: cast_nullable_to_non_nullable
               as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       tools: freezed == tools
           ? _value._tools
           : tools // ignore: cast_nullable_to_non_nullable
@@ -291,6 +407,30 @@ class __$$CourseResponseDtoImplCopyWithImpl<$Res>
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isFeatured: freezed == isFeatured
+          ? _value.isFeatured
+          : isFeatured // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      viewsCount: freezed == viewsCount
+          ? _value.viewsCount
+          : viewsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      likesCount: freezed == likesCount
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      level: freezed == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as String?,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      popularityScore: freezed == popularityScore
+          ? _value.popularityScore
+          : popularityScore // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -303,17 +443,27 @@ class _$CourseResponseDtoImpl implements _CourseResponseDto {
       this.title,
       this.category,
       this.image,
+      @JsonKey(name: 'image_url') this.imageUrl,
       this.rating,
-      this.reviewsCount,
+      @JsonKey(name: 'reviews_count') this.reviewsCount,
       this.price,
-      this.originalPrice,
+      @JsonKey(name: 'original_price') this.originalPrice,
       this.students,
+      @JsonKey(name: 'students_count') this.studentsCount,
       this.duration,
+      @JsonKey(name: 'duration_hours') this.durationHours,
       this.certificate,
       this.mentor,
       this.about,
+      this.description,
       final List<ToolResponseDto>? tools,
-      this.isFavourite})
+      @JsonKey(name: 'is_favourite') this.isFavourite,
+      @JsonKey(name: 'is_featured') this.isFeatured,
+      @JsonKey(name: 'views_count') this.viewsCount,
+      @JsonKey(name: 'likes_count') this.likesCount,
+      this.level,
+      this.language,
+      @JsonKey(name: 'popularity_score') this.popularityScore})
       : _tools = tools;
 
   factory _$CourseResponseDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -328,23 +478,36 @@ class _$CourseResponseDtoImpl implements _CourseResponseDto {
   @override
   final String? image;
   @override
+  @JsonKey(name: 'image_url')
+  final String? imageUrl;
+  @override
   final double? rating;
   @override
+  @JsonKey(name: 'reviews_count')
   final int? reviewsCount;
   @override
   final int? price;
   @override
+  @JsonKey(name: 'original_price')
   final int? originalPrice;
   @override
   final int? students;
   @override
+  @JsonKey(name: 'students_count')
+  final int? studentsCount;
+  @override
   final int? duration;
+  @override
+  @JsonKey(name: 'duration_hours')
+  final int? durationHours;
   @override
   final bool? certificate;
   @override
   final MentorResponseDto? mentor;
   @override
   final String? about;
+  @override
+  final String? description;
   final List<ToolResponseDto>? _tools;
   @override
   List<ToolResponseDto>? get tools {
@@ -356,11 +519,28 @@ class _$CourseResponseDtoImpl implements _CourseResponseDto {
   }
 
   @override
+  @JsonKey(name: 'is_favourite')
   final bool? isFavourite;
+  @override
+  @JsonKey(name: 'is_featured')
+  final bool? isFeatured;
+  @override
+  @JsonKey(name: 'views_count')
+  final int? viewsCount;
+  @override
+  @JsonKey(name: 'likes_count')
+  final int? likesCount;
+  @override
+  final String? level;
+  @override
+  final String? language;
+  @override
+  @JsonKey(name: 'popularity_score')
+  final double? popularityScore;
 
   @override
   String toString() {
-    return 'CourseResponseDto(id: $id, title: $title, category: $category, image: $image, rating: $rating, reviewsCount: $reviewsCount, price: $price, originalPrice: $originalPrice, students: $students, duration: $duration, certificate: $certificate, mentor: $mentor, about: $about, tools: $tools, isFavourite: $isFavourite)';
+    return 'CourseResponseDto(id: $id, title: $title, category: $category, image: $image, imageUrl: $imageUrl, rating: $rating, reviewsCount: $reviewsCount, price: $price, originalPrice: $originalPrice, students: $students, studentsCount: $studentsCount, duration: $duration, durationHours: $durationHours, certificate: $certificate, mentor: $mentor, about: $about, description: $description, tools: $tools, isFavourite: $isFavourite, isFeatured: $isFeatured, viewsCount: $viewsCount, likesCount: $likesCount, level: $level, language: $language, popularityScore: $popularityScore)';
   }
 
   @override
@@ -373,6 +553,8 @@ class _$CourseResponseDtoImpl implements _CourseResponseDto {
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.image, image) || other.image == image) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
             (identical(other.rating, rating) || other.rating == rating) &&
             (identical(other.reviewsCount, reviewsCount) ||
                 other.reviewsCount == reviewsCount) &&
@@ -381,36 +563,64 @@ class _$CourseResponseDtoImpl implements _CourseResponseDto {
                 other.originalPrice == originalPrice) &&
             (identical(other.students, students) ||
                 other.students == students) &&
+            (identical(other.studentsCount, studentsCount) ||
+                other.studentsCount == studentsCount) &&
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
+            (identical(other.durationHours, durationHours) ||
+                other.durationHours == durationHours) &&
             (identical(other.certificate, certificate) ||
                 other.certificate == certificate) &&
             (identical(other.mentor, mentor) || other.mentor == mentor) &&
             (identical(other.about, about) || other.about == about) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality().equals(other._tools, _tools) &&
             (identical(other.isFavourite, isFavourite) ||
-                other.isFavourite == isFavourite));
+                other.isFavourite == isFavourite) &&
+            (identical(other.isFeatured, isFeatured) ||
+                other.isFeatured == isFeatured) &&
+            (identical(other.viewsCount, viewsCount) ||
+                other.viewsCount == viewsCount) &&
+            (identical(other.likesCount, likesCount) ||
+                other.likesCount == likesCount) &&
+            (identical(other.level, level) || other.level == level) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
+            (identical(other.popularityScore, popularityScore) ||
+                other.popularityScore == popularityScore));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      category,
-      image,
-      rating,
-      reviewsCount,
-      price,
-      originalPrice,
-      students,
-      duration,
-      certificate,
-      mentor,
-      about,
-      const DeepCollectionEquality().hash(_tools),
-      isFavourite);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        title,
+        category,
+        image,
+        imageUrl,
+        rating,
+        reviewsCount,
+        price,
+        originalPrice,
+        students,
+        studentsCount,
+        duration,
+        durationHours,
+        certificate,
+        mentor,
+        about,
+        description,
+        const DeepCollectionEquality().hash(_tools),
+        isFavourite,
+        isFeatured,
+        viewsCount,
+        likesCount,
+        level,
+        language,
+        popularityScore
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -429,21 +639,32 @@ class _$CourseResponseDtoImpl implements _CourseResponseDto {
 
 abstract class _CourseResponseDto implements CourseResponseDto {
   const factory _CourseResponseDto(
-      {final String? id,
-      final String? title,
-      final String? category,
-      final String? image,
-      final double? rating,
-      final int? reviewsCount,
-      final int? price,
-      final int? originalPrice,
-      final int? students,
-      final int? duration,
-      final bool? certificate,
-      final MentorResponseDto? mentor,
-      final String? about,
-      final List<ToolResponseDto>? tools,
-      final bool? isFavourite}) = _$CourseResponseDtoImpl;
+          {final String? id,
+          final String? title,
+          final String? category,
+          final String? image,
+          @JsonKey(name: 'image_url') final String? imageUrl,
+          final double? rating,
+          @JsonKey(name: 'reviews_count') final int? reviewsCount,
+          final int? price,
+          @JsonKey(name: 'original_price') final int? originalPrice,
+          final int? students,
+          @JsonKey(name: 'students_count') final int? studentsCount,
+          final int? duration,
+          @JsonKey(name: 'duration_hours') final int? durationHours,
+          final bool? certificate,
+          final MentorResponseDto? mentor,
+          final String? about,
+          final String? description,
+          final List<ToolResponseDto>? tools,
+          @JsonKey(name: 'is_favourite') final bool? isFavourite,
+          @JsonKey(name: 'is_featured') final bool? isFeatured,
+          @JsonKey(name: 'views_count') final int? viewsCount,
+          @JsonKey(name: 'likes_count') final int? likesCount,
+          final String? level,
+          final String? language,
+          @JsonKey(name: 'popularity_score') final double? popularityScore}) =
+      _$CourseResponseDtoImpl;
 
   factory _CourseResponseDto.fromJson(Map<String, dynamic> json) =
       _$CourseResponseDtoImpl.fromJson;
@@ -457,17 +678,28 @@ abstract class _CourseResponseDto implements CourseResponseDto {
   @override
   String? get image;
   @override
+  @JsonKey(name: 'image_url')
+  String? get imageUrl;
+  @override
   double? get rating;
   @override
+  @JsonKey(name: 'reviews_count')
   int? get reviewsCount;
   @override
   int? get price;
   @override
+  @JsonKey(name: 'original_price')
   int? get originalPrice;
   @override
   int? get students;
   @override
+  @JsonKey(name: 'students_count')
+  int? get studentsCount;
+  @override
   int? get duration;
+  @override
+  @JsonKey(name: 'duration_hours')
+  int? get durationHours;
   @override
   bool? get certificate;
   @override
@@ -475,9 +707,28 @@ abstract class _CourseResponseDto implements CourseResponseDto {
   @override
   String? get about;
   @override
+  String? get description;
+  @override
   List<ToolResponseDto>? get tools;
   @override
+  @JsonKey(name: 'is_favourite')
   bool? get isFavourite;
+  @override
+  @JsonKey(name: 'is_featured')
+  bool? get isFeatured;
+  @override
+  @JsonKey(name: 'views_count')
+  int? get viewsCount;
+  @override
+  @JsonKey(name: 'likes_count')
+  int? get likesCount;
+  @override
+  String? get level;
+  @override
+  String? get language;
+  @override
+  @JsonKey(name: 'popularity_score')
+  double? get popularityScore;
   @override
   @JsonKey(ignore: true)
   _$$CourseResponseDtoImplCopyWith<_$CourseResponseDtoImpl> get copyWith =>

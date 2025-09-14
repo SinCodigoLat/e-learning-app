@@ -18,8 +18,8 @@ class LessonResponseDto {
       id: json['id'],
       title: json['title'],
       duration: json['duration'],
-      videoUrl: json['videoUrl'],
-      isFree: json['isFree'],
+      videoUrl: json['video_url'] ?? '',
+      isFree: json['is_free'] ?? false,
     );
   }
 
@@ -28,8 +28,8 @@ class LessonResponseDto {
       'id': id,
       'title': title,
       'duration': duration,
-      'videoUrl': videoUrl,
-      'isFree': isFree,
+      'video_url': videoUrl,
+      'is_free': isFree,
     };
   }
 }
