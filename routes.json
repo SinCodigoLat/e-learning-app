@@ -1,0 +1,14 @@
+{
+  "/api/courses/popular": "/courses/popular",
+  "/api/categories": "/categories", 
+  "/api/mentors": "/mentors",
+  "/api/profile": "/profile",
+  "/api/promote": "/promote",
+  "/api/search/suggestions": "/search/suggestions",
+  "/api/search/history": "/searchHistory",
+  "/api/courses": "/courses",
+  "/api/course/:id": "/course/:id",
+  "/api/courses/:id/lessons": "/courses/:id/lessons",
+  "/api/courses/:id/reviews": "/courses/:id/reviews",
+  "/api/login": "/login"
+}

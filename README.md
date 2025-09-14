@@ -43,15 +43,47 @@ cd e-learning
 flutter pub get
 ```
 
-3. **Run the app**:
-    - Development mode:
+3. **Start Mock API Server**:
+    ```bash
+    python3 api_server.py
+    ```
+    
+4. **Run the app**:
+    - Development mode (with mock server):
         ```bash
         flutter run --flavor dev --target=lib/main_dev.dart
+        ```
+    - Quick start (both server and app):
+        ```bash
+        ./start_dev.sh
         ```
     - Production mode:
         ```bash
         flutter run --flavor prod --target=lib/main_prod.dart
         ```
+
+## Mock API Server
+
+This project includes a local mock API server for development. The server provides realistic data for all app features.
+
+### Available Endpoints:
+- `GET /api/courses/popular` - Popular courses
+- `GET /api/categories` - Course categories  
+- `GET /api/mentors` - List of mentors
+- `GET /api/profile` - User profile
+- `GET /api/promote` - Active promotions
+- `GET /api/search/suggestions` - Search suggestions
+- `GET /api/search/history` - Search history
+- `GET /api/courses` - All courses
+- `GET /api/course/{id}` - Specific course
+- `GET /api/courses/{id}/lessons` - Course lessons
+- `GET /api/courses/{id}/reviews` - Course reviews
+
+### Server Details:
+- **Port**: 3000
+- **Base URL**: http://localhost:3000/api
+- **Data**: Stored in `db.json`
+- **Script**: `api_server.py`
 
 ## Contributing
 

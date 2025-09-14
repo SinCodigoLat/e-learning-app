@@ -1,0 +1,470 @@
+{
+  "profile": {
+    "id": "1",
+    "name": "Jorge Valdez",
+    "email": "jorge@example.com",
+    "avatar": "https://via.placeholder.com/150",
+    "role": "student",
+    "joinDate": "2024-01-15",
+    "coursesCompleted": 5,
+    "totalHours": 120
+  },
+  "promote": [
+    {
+      "id": 1,
+      "title": "New Year Special",
+      "description": "Get 50% off on all courses",
+      "discount": 50,
+      "validUntil": "2024-12-31",
+      "image": "https://via.placeholder.com/300x150"
+    },
+    {
+      "id": 2,
+      "title": "Flash Sale",
+      "description": "Limited time offer - 70% off",
+      "discount": 70,
+      "validUntil": "2024-02-15",
+      "image": "https://via.placeholder.com/300x150"
+    }
+  ],
+  "mentors": [
+    {
+      "id": "1",
+      "name": "Alice Johnson",
+      "title": "Senior Flutter Developer",
+      "avatar": "https://via.placeholder.com/100",
+      "rating": 4.8,
+      "students": 1250,
+      "courses": 15,
+      "experience": "5 years",
+      "specialties": ["Flutter", "Dart", "Mobile Development"]
+    },
+    {
+      "id": "2", 
+      "name": "Bob Smith",
+      "title": "UI/UX Designer",
+      "avatar": "https://via.placeholder.com/100",
+      "rating": 4.9,
+      "students": 2100,
+      "courses": 22,
+      "experience": "7 years",
+      "specialties": ["UI Design", "UX Research", "Figma"]
+    },
+    {
+      "id": "3",
+      "name": "Carol Davis",
+      "title": "Backend Engineer",
+      "avatar": "https://via.placeholder.com/100",
+      "rating": 4.7,
+      "students": 980,
+      "courses": 12,
+      "experience": "6 years",
+      "specialties": ["Node.js", "Python", "Database Design"]
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Mobile Development",
+      "icon": "📱",
+      "courseCount": 25
+    },
+    {
+      "id": "2",
+      "name": "Web Development", 
+      "icon": "🌐",
+      "courseCount": 18
+    },
+    {
+      "id": "3",
+      "name": "UI/UX Design",
+      "icon": "🎨",
+      "courseCount": 12
+    },
+    {
+      "id": "4",
+      "name": "Data Science",
+      "icon": "📊",
+      "courseCount": 8
+    },
+    {
+      "id": "5",
+      "name": "DevOps",
+      "icon": "⚙️",
+      "courseCount": 6
+    }
+  ],
+  "courses/popular": [
+    {
+      "id": "1",
+      "title": "Complete Flutter Development Course",
+      "category": "Mobile Development",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 99,
+      "originalPrice": 199,
+      "rating": 4.8,
+      "reviewsCount": 1250,
+      "students": 5000,
+      "duration": 40,
+      "certificate": true,
+      "mentor": {
+        "id": "1",
+        "name": "Alice Johnson",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["Flutter", "Dart", "Firebase"],
+      "about": "Learn Flutter from scratch and build amazing mobile applications. This comprehensive course covers everything from basic widgets to advanced state management.",
+      "isFavourite": true
+    },
+    {
+      "id": "2",
+      "title": "Modern UI/UX Design Principles",
+      "category": "UI/UX Design",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 79,
+      "originalPrice": 149,
+      "rating": 4.9,
+      "reviewsCount": 890,
+      "students": 3200,
+      "duration": 25,
+      "certificate": true,
+      "mentor": {
+        "id": "2",
+        "name": "Bob Smith",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["Figma", "Adobe XD", "Sketch"],
+      "about": "Master the art of user interface and user experience design. Learn to create beautiful and functional designs that users love.",
+      "isFavourite": false
+    },
+    {
+      "id": "3",
+      "title": "Node.js Backend Development",
+      "category": "Web Development",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 89,
+      "originalPrice": 179,
+      "rating": 4.7,
+      "reviewsCount": 650,
+      "students": 2800,
+      "duration": 35,
+      "certificate": true,
+      "mentor": {
+        "id": "3",
+        "name": "Carol Davis",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["Node.js", "Express", "MongoDB"],
+      "about": "Build robust and scalable backend applications with Node.js. Learn server-side development, APIs, and database integration.",
+      "isFavourite": true
+    },
+    {
+      "id": "4",
+      "title": "React Native Cross-Platform Apps",
+      "category": "Mobile Development",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 95,
+      "originalPrice": 189,
+      "rating": 4.6,
+      "reviewsCount": 720,
+      "students": 2100,
+      "duration": 30,
+      "certificate": true,
+      "mentor": {
+        "id": "1",
+        "name": "Alice Johnson",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["React Native", "JavaScript", "Redux"],
+      "about": "Create cross-platform mobile apps with React Native. Build iOS and Android apps with a single codebase.",
+      "isFavourite": false
+    },
+    {
+      "id": "5",
+      "title": "Python Data Science Bootcamp",
+      "category": "Data Science",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 119,
+      "originalPrice": 249,
+      "rating": 4.8,
+      "reviewsCount": 450,
+      "students": 1800,
+      "duration": 50,
+      "certificate": true,
+      "mentor": {
+        "id": "3",
+        "name": "Carol Davis",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["Python", "Pandas", "NumPy", "Matplotlib"],
+      "about": "Dive deep into data science with Python. Learn data analysis, machine learning, and visualization techniques.",
+      "isFavourite": true
+    }
+  ],
+  "lessons": [
+    {
+      "id": "1",
+      "courseId": "1",
+      "title": "Introduction to Flutter",
+      "description": "Get started with Flutter development",
+      "duration": 25,
+      "videoUrl": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
+      "isCompleted": true,
+      "order": 1
+    },
+    {
+      "id": "2", 
+      "courseId": "1",
+      "title": "Widgets and Layouts",
+      "description": "Learn about Flutter widgets and layout system",
+      "duration": 35,
+      "videoUrl": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
+      "isCompleted": false,
+      "order": 2
+    },
+    {
+      "id": "3",
+      "courseId": "1", 
+      "title": "State Management",
+      "description": "Master state management in Flutter",
+      "duration": 40,
+      "videoUrl": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
+      "isCompleted": false,
+      "order": 3
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "courseId": "1",
+      "userId": "1",
+      "userName": "John Doe",
+      "rating": 5,
+      "comment": "Excellent course! Alice is a great instructor.",
+      "date": "2024-01-15"
+    },
+    {
+      "id": "2",
+      "courseId": "1", 
+      "userId": "2",
+      "userName": "Jane Smith",
+      "rating": 4,
+      "comment": "Very comprehensive and well-structured.",
+      "date": "2024-01-10"
+    }
+  ],
+  "searchHistory": [
+    {
+      "id": "1",
+      "keyword": "Flutter",
+      "searchedAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": "2", 
+      "keyword": "React",
+      "searchedAt": "2024-01-14T15:20:00Z"
+    }
+  ],
+  "search/suggestions": [
+    "Flutter Development",
+    "React Native",
+    "UI/UX Design",
+    "Node.js",
+    "Python",
+    "JavaScript",
+    "Mobile App Development",
+    "Web Development"
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "title": "Complete Flutter Development Course",
+      "category": "Mobile Development",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 99,
+      "originalPrice": 199,
+      "rating": 4.8,
+      "reviewsCount": 1250,
+      "students": 5000,
+      "duration": 40,
+      "certificate": true,
+      "mentor": {
+        "id": "1",
+        "name": "Alice Johnson",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["Flutter", "Dart", "Firebase"],
+      "about": "Learn Flutter from scratch and build amazing mobile applications. This comprehensive course covers everything from basic widgets to advanced state management.",
+      "isFavourite": true
+    },
+    {
+      "id": "2",
+      "title": "Modern UI/UX Design Principles",
+      "category": "UI/UX Design",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 79,
+      "originalPrice": 149,
+      "rating": 4.9,
+      "reviewsCount": 890,
+      "students": 3200,
+      "duration": 25,
+      "certificate": true,
+      "mentor": {
+        "id": "2",
+        "name": "Bob Smith",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["Figma", "Adobe XD", "Sketch"],
+      "about": "Master the art of user interface and user experience design. Learn to create beautiful and functional designs that users love.",
+      "isFavourite": false
+    },
+    {
+      "id": "3",
+      "title": "Node.js Backend Development",
+      "category": "Web Development",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 89,
+      "originalPrice": 179,
+      "rating": 4.7,
+      "reviewsCount": 650,
+      "students": 2800,
+      "duration": 35,
+      "certificate": true,
+      "mentor": {
+        "id": "3",
+        "name": "Carol Davis",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["Node.js", "Express", "MongoDB"],
+      "about": "Build robust and scalable backend applications with Node.js. Learn server-side development, APIs, and database integration.",
+      "isFavourite": true
+    },
+    {
+      "id": "4",
+      "title": "React Native Cross-Platform Apps",
+      "category": "Mobile Development",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 95,
+      "originalPrice": 189,
+      "rating": 4.6,
+      "reviewsCount": 720,
+      "students": 2100,
+      "duration": 30,
+      "certificate": true,
+      "mentor": {
+        "id": "1",
+        "name": "Alice Johnson",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["React Native", "JavaScript", "Redux"],
+      "about": "Create cross-platform mobile apps with React Native. Build iOS and Android apps with a single codebase.",
+      "isFavourite": false
+    },
+    {
+      "id": "5",
+      "title": "Python Data Science Bootcamp",
+      "category": "Data Science",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 119,
+      "originalPrice": 249,
+      "rating": 4.8,
+      "reviewsCount": 450,
+      "students": 1800,
+      "duration": 50,
+      "certificate": true,
+      "mentor": {
+        "id": "3",
+        "name": "Carol Davis",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["Python", "Pandas", "NumPy", "Matplotlib"],
+      "about": "Dive deep into data science with Python. Learn data analysis, machine learning, and visualization techniques.",
+      "isFavourite": true
+    }
+  ],
+  "course": {
+    "1": {
+      "id": "1",
+      "title": "Complete Flutter Development Course",
+      "category": "Mobile Development",
+      "image": "https://via.placeholder.com/300x200",
+      "price": 99,
+      "originalPrice": 199,
+      "rating": 4.8,
+      "reviewsCount": 1250,
+      "students": 5000,
+      "duration": 40,
+      "certificate": true,
+      "mentor": {
+        "id": "1",
+        "name": "Alice Johnson",
+        "avatar": "https://via.placeholder.com/50"
+      },
+      "tools": ["Flutter", "Dart", "Firebase"],
+      "about": "Learn Flutter from scratch and build amazing mobile applications. This comprehensive course covers everything from basic widgets to advanced state management.",
+      "isFavourite": true
+    }
+  },
+  "courses/1/lessons": [
+    {
+      "id": "1",
+      "courseId": "1",
+      "title": "Introduction to Flutter",
+      "description": "Get started with Flutter development",
+      "duration": 25,
+      "videoUrl": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
+      "isCompleted": true,
+      "order": 1
+    },
+    {
+      "id": "2", 
+      "courseId": "1",
+      "title": "Widgets and Layouts",
+      "description": "Learn about Flutter widgets and layout system",
+      "duration": 35,
+      "videoUrl": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
+      "isCompleted": false,
+      "order": 2
+    },
+    {
+      "id": "3",
+      "courseId": "1", 
+      "title": "State Management",
+      "description": "Master state management in Flutter",
+      "duration": 40,
+      "videoUrl": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
+      "isCompleted": false,
+      "order": 3
+    }
+  ],
+  "courses/1/reviews": [
+    {
+      "id": "1",
+      "courseId": "1",
+      "userId": "1",
+      "userName": "John Doe",
+      "rating": 5,
+      "comment": "Excellent course! Alice is a great instructor.",
+      "date": "2024-01-15"
+    },
+    {
+      "id": "2",
+      "courseId": "1", 
+      "userId": "2",
+      "userName": "Jane Smith",
+      "rating": 4,
+      "comment": "Very comprehensive and well-structured.",
+      "date": "2024-01-10"
+    }
+  ],
+  "login": {
+    "token": "mock-jwt-token-12345",
+    "refreshToken": "mock-refresh-token-67890",
+    "user": {
+      "id": "1",
+      "name": "Jorge Valdez",
+      "email": "jorge@example.com",
+      "avatar": "https://via.placeholder.com/150"
+    }
+  }
+}

@@ -13,7 +13,7 @@ class AppEnvironment extends EnvironmentConfigurable {
   });
 
   static AppEnvironment dev = AppEnvironment(
-    apiBaseUrl: 'https://d5dd9cdf-7b43-476a-96fc-c95e405bc449.mock.pstmn.io/api',
+    apiBaseUrl: 'http://localhost:3000',
     brandName: 'E-Learning',
   );
 
