@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_learning_app/base/bloc/base_bloc/base_bloc.dart';
-import 'package:e_learning_app/base/use_case/base_use_case.dart';
 import 'package:e_learning_app/domain/entity/user/user_entity.dart';
 import 'package:e_learning_app/domain/use_case/user/fetch_profile_use_case.dart';
+import 'package:e_learning_app/domain/use_case/user/update_profile_use_case.dart';
 import 'package:e_learning_app/ui/profile/pages/edit_profile/bloc/edit_profile_event.dart';
 import 'package:e_learning_app/ui/profile/pages/edit_profile/bloc/edit_profile_state.dart';
 import 'package:e_learning_app/ui/profile/pages/edit_profile/utils/email_input.dart';
@@ -13,7 +13,7 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class EditProfileBloc extends BaseBloc<EditProfileEvent, EditProfileState> {
-  EditProfileBloc(this._fetchProfileUseCase)
+  EditProfileBloc(this._fetchProfileUseCase, this._updateProfileUseCase)
       : super(EditProfileState(
           nameInput: const NameInput.pure(),
           emailInput: const EmailInput.pure(),
@@ -30,6 +30,7 @@ class EditProfileBloc extends BaseBloc<EditProfileEvent, EditProfileState> {
   }
 
   final FetchProfileUseCase _fetchProfileUseCase;
+  final UpdateProfileUseCase _updateProfileUseCase;
 
   Future<void> _onEditProfileDataRequestEvent(
       EditProfileDataRequestEvent event, Emitter<EditProfileState> emit) async {
@@ -96,15 +97,38 @@ class EditProfileBloc extends BaseBloc<EditProfileEvent, EditProfileState> {
         try {
           emit(state.copyWith(isUpdating: true, updateErrorMessage: null));
 
-          // Simulate API call - replace with real update logic
-          await Future.delayed(const Duration(seconds: 2));
+          // Create update parameters from current state
+          final updateParam = UpdateProfileParam(
+            fullName: state.nameInput.value,
+            email: state.emailInput.value,
+            phoneNumber: state.user.phoneNumber,
+            birthday: state.selectedBirthday,
+            gender: state.selectedGender?.fromTitle(),
+            // Preserve the current avatar to avoid losing it
+            avatar: state.user.avatar,
+          );
 
-          print('💾 Profile update successful');
-          emit(state.copyWith(
-            isUpdating: false,
-            isUpdateSuccess: true,
-            updateErrorMessage: null,
-          ));
+          final result = await _updateProfileUseCase.invoke(updateParam);
+
+          result.when(
+            ok: (updatedUser) {
+              print('💾 Profile update successful');
+              emit(state.copyWith(
+                isUpdating: false,
+                isUpdateSuccess: true,
+                updateErrorMessage: null,
+                user: updatedUser,
+              ));
+            },
+            failure: (error) {
+              print('💾 Profile update failed: $error');
+              emit(state.copyWith(
+                isUpdating: false,
+                isUpdateSuccess: false,
+                updateErrorMessage: error.toString(),
+              ));
+            },
+          );
         } catch (e) {
           print('💾 Profile update failed: $e');
           emit(state.copyWith(

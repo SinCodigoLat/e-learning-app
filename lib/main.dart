@@ -29,37 +29,57 @@ Future<void> initApp({
   required AppEnvironment env,
   required bool enableLog,
 }) async {
+  print('🏁 AppInit - Starting app initialization');
   WidgetsFlutterBinding.ensureInitialized();
   CoreLog.enableLog = enableLog;
   HttpOverrides.global = MyHttpOverrides();
   SL.registerLazySingleton<EnvironmentConfigurable>(() => env);
 
+  print('🏁 AppInit - Running beforeRun callback');
   await beforeRun.call();
 
   CoreLog.i('Starting app with environment: ${env.getBaseUrl()}');
+  print('🏁 AppInit - Environment: ${env.getBaseUrl()}');
 
   final loadAppConfig = SL.get<LoadAppConfigUseCase>().invoke(null);
+  print('🏁 AppInit - Load App config: $loadAppConfig');
 
-  CoreLog.i('Load App config: $loadAppConfig');
-
+  print('🏁 AppInit - Creating AppBloc and triggering AppStartedEvent');
   runApp(
     BlocProvider(
-      create: (context) =>
-          SL.get<AppBloc>()..add(AppStartedEvent(loadAppConfig)),
+      create: (context) {
+        final appBloc = SL.get<AppBloc>();
+        print('🏁 AppInit - AppBloc created, adding AppStartedEvent');
+        print('🏁 AppInit - AppBloc instance: ${appBloc.runtimeType}');
+        print(
+            '🏁 AppInit - Adding AppStartedEvent with config: $loadAppConfig');
+        appBloc.add(AppStartedEvent(loadAppConfig));
+        print('🏁 AppInit - AppStartedEvent added successfully');
+        return appBloc;
+      },
       child: _MyApp(config: loadAppConfig),
     ),
   );
+  print('🏁 AppInit - App initialization completed');
 }
 
 Future<void> _defaultBeforeRun() async {
+  print('🔧 BeforeRun - Starting Supabase initialization');
+
   // Initialize Supabase
   await Supabase.initialize(
     url: SL.get<EnvironmentConfigurable>().getSupabaseUrl(),
     anonKey: SL.get<EnvironmentConfigurable>().getSupabaseAnonKey(),
   );
 
+  print('🔧 BeforeRun - Supabase initialized successfully');
+  print(
+      '🔧 BeforeRun - Supabase URL: ${SL.get<EnvironmentConfigurable>().getSupabaseUrl()}');
+
   // Then initialize app config
+  print('🔧 BeforeRun - Initializing app config');
   await AppConfig.instance().init();
+  print('🔧 BeforeRun - App config initialized successfully');
 }
 
 class _MyApp extends StatefulWidget {
@@ -103,17 +123,26 @@ class _MyAppState extends FoundationState<_MyApp, AppBloc> {
 
     // Check if user is logged in with Supabase
     final user = Supabase.instance.client.auth.currentUser;
+    print('🌐 MainApp - Deep link builder called');
+    print('🌐 MainApp - Current Supabase user: ${user?.id} (${user?.email})');
+    print(
+        '🌐 MainApp - App config: isFirstLaunch=${widget.config.isFirstLaunchApp}, isLoggedIn=${widget.config.isLoggedIn}');
 
     if (widget.config.isFirstLaunchApp) {
+      print('🌐 MainApp - First launch, routing to OnboardingRoute');
       routes = [const OnboardingRoute()];
     } else if (user != null) {
       // User is logged in, go to main page
+      print('🌐 MainApp - User logged in, routing to MainRoute');
       routes = [const MainRoute()];
     } else {
       // User is not logged in, go to login page
+      print('🌐 MainApp - User not logged in, routing to LoginRoute');
       routes = [const LoginRoute()];
     }
 
+    print(
+        '🌐 MainApp - Final route: ${routes.map((r) => r.runtimeType.toString()).join(", ")}');
     return DeepLink(routes);
   }
 }

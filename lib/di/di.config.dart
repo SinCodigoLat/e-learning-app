@@ -57,6 +57,7 @@ import '../domain/use_case/course/watch_favorite_course_stream_use_case.dart'
 import '../domain/use_case/user/fetch_profile_use_case.dart' as _i79;
 import '../domain/use_case/user/listen_user_profile_stream_use_case.dart'
     as _i360;
+import '../domain/use_case/user/update_profile_use_case.dart' as _i11;
 import '../navigation/app_navigator_impl.dart' as _i285;
 import '../navigation/router.dart' as _i502;
 import '../ui/course/page/course_detail/bloc/course_detail_bloc.dart' as _i942;
@@ -85,8 +86,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i792.CourseListBloc>(() => _i792.CourseListBloc());
     gh.factory<_i494.SettingNotificationBloc>(
         () => _i494.SettingNotificationBloc());
-    gh.factory<_i839.LoadAppConfigUseCase>(() => _i839.LoadAppConfigUseCase());
     gh.factory<_i856.ThemeBloc>(() => _i856.ThemeBloc());
+    gh.factory<_i839.LoadAppConfigUseCase>(() => _i839.LoadAppConfigUseCase());
     gh.lazySingleton<_i502.AppRouter>(() => _i502.AppRouter());
     gh.lazySingleton<_i778.SupabaseService>(() => _i778.SupabaseService());
     gh.lazySingleton<_i414.AppNavigator>(
@@ -124,6 +125,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i181.SignUpUseCase(gh<_i623.AuthRepo>()));
     gh.factory<_i79.FetchProfileUseCase>(
         () => _i79.FetchProfileUseCase(gh<_i575.UserRepo>()));
+    gh.factory<_i11.UpdateProfileUseCase>(
+        () => _i11.UpdateProfileUseCase(gh<_i575.UserRepo>()));
     gh.factory<_i360.ListenUserProfileStreamUseCase>(
         () => _i360.ListenUserProfileStreamUseCase(gh<_i575.UserRepo>()));
     gh.lazySingleton<_i773.LogoutBloc>(
@@ -165,10 +168,12 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i627.FetchSearchSuggestionListUseCase>(),
           gh<_i141.FetchSearchHistoryListUseCase>(),
         ));
-    gh.factory<_i90.EditProfileBloc>(
-        () => _i90.EditProfileBloc(gh<_i79.FetchProfileUseCase>()));
     gh.singleton<_i334.AppBloc>(
         () => _i334.AppBloc(gh<_i79.FetchProfileUseCase>()));
+    gh.factory<_i90.EditProfileBloc>(() => _i90.EditProfileBloc(
+          gh<_i79.FetchProfileUseCase>(),
+          gh<_i11.UpdateProfileUseCase>(),
+        ));
     gh.factory<_i942.CourseDetailBloc>(() => _i942.CourseDetailBloc(
           gh<_i538.FetchCourseDetailUseCase>(),
           gh<_i430.FetchLessonListFromCourseIdUseCase>(),

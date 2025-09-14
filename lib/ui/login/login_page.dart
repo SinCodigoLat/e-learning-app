@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_learning_app/base/constants/ui/app_colors.dart';
 import 'package:e_learning_app/base/shared_view/foundation_state.dart';
+import 'package:e_learning_app/base/bloc/app_bloc/app_bloc.dart';
+import 'package:e_learning_app/base/bloc/app_bloc/app_event.dart';
 import 'package:e_learning_app/navigation/router.gr.dart';
 import 'package:gap/gap.dart';
 
@@ -80,6 +82,8 @@ class _LoginPageState extends FoundationState<LoginPage, LoginBloc> {
             BlocConsumer<LoginBloc, LoginState>(
               listener: (context, state) {
                 if (state.isSuccess) {
+                  // Trigger user logged in event to load profile
+                  context.read<AppBloc>().add(UserLoggedInEvent(''));
                   // Navigate to main page
                   AutoRouter.of(context).push(const MainRoute());
                 }
