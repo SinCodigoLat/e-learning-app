@@ -11,19 +11,21 @@
   },
   "promote": [
     {
-      "id": 1,
+      "id": "1",
       "title": "New Year Special",
       "description": "Get 50% off on all courses",
-      "discount": 50,
-      "validUntil": "2024-12-31",
+      "discount": "50%",
+      "isActive": true,
+      "expiryDate": "2024-12-31",
       "image": "https://via.placeholder.com/300x150"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Flash Sale",
       "description": "Limited time offer - 70% off",
-      "discount": 70,
-      "validUntil": "2024-02-15",
+      "discount": "70%",
+      "isActive": true,
+      "expiryDate": "2024-02-15",
       "image": "https://via.placeholder.com/300x150"
     }
   ],
@@ -112,7 +114,11 @@
         "name": "Alice Johnson",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["Flutter", "Dart", "Firebase"],
+      "tools": [
+        {"name": "Flutter", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Dart", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Firebase", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Learn Flutter from scratch and build amazing mobile applications. This comprehensive course covers everything from basic widgets to advanced state management.",
       "isFavourite": true
     },
@@ -133,7 +139,11 @@
         "name": "Bob Smith",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["Figma", "Adobe XD", "Sketch"],
+      "tools": [
+        {"name": "Figma", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Adobe XD", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Sketch", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Master the art of user interface and user experience design. Learn to create beautiful and functional designs that users love.",
       "isFavourite": false
     },
@@ -154,7 +164,11 @@
         "name": "Carol Davis",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["Node.js", "Express", "MongoDB"],
+      "tools": [
+        {"name": "Node.js", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Express", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "MongoDB", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Build robust and scalable backend applications with Node.js. Learn server-side development, APIs, and database integration.",
       "isFavourite": true
     },
@@ -175,7 +189,11 @@
         "name": "Alice Johnson",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["React Native", "JavaScript", "Redux"],
+      "tools": [
+        {"name": "React Native", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "JavaScript", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Redux", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Create cross-platform mobile apps with React Native. Build iOS and Android apps with a single codebase.",
       "isFavourite": false
     },
@@ -196,7 +214,12 @@
         "name": "Carol Davis",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["Python", "Pandas", "NumPy", "Matplotlib"],
+      "tools": [
+        {"name": "Python", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Pandas", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "NumPy", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Matplotlib", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Dive deep into data science with Python. Learn data analysis, machine learning, and visualization techniques.",
       "isFavourite": true
     }
@@ -293,7 +316,11 @@
         "name": "Alice Johnson",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["Flutter", "Dart", "Firebase"],
+      "tools": [
+        {"name": "Flutter", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Dart", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Firebase", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Learn Flutter from scratch and build amazing mobile applications. This comprehensive course covers everything from basic widgets to advanced state management.",
       "isFavourite": true
     },
@@ -314,7 +341,11 @@
         "name": "Bob Smith",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["Figma", "Adobe XD", "Sketch"],
+      "tools": [
+        {"name": "Figma", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Adobe XD", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Sketch", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Master the art of user interface and user experience design. Learn to create beautiful and functional designs that users love.",
       "isFavourite": false
     },
@@ -335,7 +366,11 @@
         "name": "Carol Davis",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["Node.js", "Express", "MongoDB"],
+      "tools": [
+        {"name": "Node.js", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Express", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "MongoDB", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Build robust and scalable backend applications with Node.js. Learn server-side development, APIs, and database integration.",
       "isFavourite": true
     },
@@ -356,7 +391,11 @@
         "name": "Alice Johnson",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["React Native", "JavaScript", "Redux"],
+      "tools": [
+        {"name": "React Native", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "JavaScript", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Redux", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Create cross-platform mobile apps with React Native. Build iOS and Android apps with a single codebase.",
       "isFavourite": false
     },
@@ -377,7 +416,12 @@
         "name": "Carol Davis",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["Python", "Pandas", "NumPy", "Matplotlib"],
+      "tools": [
+        {"name": "Python", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Pandas", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "NumPy", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Matplotlib", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Dive deep into data science with Python. Learn data analysis, machine learning, and visualization techniques.",
       "isFavourite": true
     }
@@ -400,7 +444,11 @@
         "name": "Alice Johnson",
         "avatar": "https://via.placeholder.com/50"
       },
-      "tools": ["Flutter", "Dart", "Firebase"],
+      "tools": [
+        {"name": "Flutter", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Dart", "iconUrl": "https://via.placeholder.com/24"},
+        {"name": "Firebase", "iconUrl": "https://via.placeholder.com/24"}
+      ],
       "about": "Learn Flutter from scratch and build amazing mobile applications. This comprehensive course covers everything from basic widgets to advanced state management.",
       "isFavourite": true
     }
